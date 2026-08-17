@@ -1,21 +1,41 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Playfair_Display, Noto_Serif_KR, Inter, Noto_Sans_KR } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyMobileCta } from "@/components/layout/StickyMobileCta";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
 
+// Headline pairing: Playfair Display carries Latin headlines; Noto Serif KR
+// picks up automatically wherever a headline has Korean characters, since
+// Playfair has no Hangul glyphs and the browser falls through the stack.
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
-  variable: "--font-display",
+  variable: "--font-playfair",
   display: "swap",
 });
 
+const notoSerifKR = Noto_Serif_KR({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-noto-serif-kr",
+  display: "swap",
+});
+
+// Body pairing, same idea: Inter for Latin, Noto Sans KR for Korean — both
+// self-hosted by next/font so they're preloaded and render crisply with no
+// external CDN round trip (unlike the previous Pretendard-via-jsdelivr setup).
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const notoSansKR = Noto_Sans_KR({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-noto-sans-kr",
   display: "swap",
 });
 
@@ -56,7 +76,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko" className={`${playfair.variable} ${inter.variable}`}>
+    <html
+      lang="ko"
+      className={`${playfair.variable} ${notoSerifKR.variable} ${inter.variable} ${notoSansKR.variable}`}
+    >
       {/*
         Analytics placeholder:
         Insert Google Analytics (gtag.js) and/or Meta Pixel snippets here

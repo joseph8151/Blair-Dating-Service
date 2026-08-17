@@ -43,8 +43,20 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["var(--font-display)", "Georgia", "serif"],
-        body: ["var(--font-body)", "Pretendard", "Inter", "sans-serif"],
+        // Latin glyphs render in Playfair/Inter; Korean glyphs (absent from
+        // those fonts) fall through automatically to their Noto companion.
+        display: [
+          "var(--font-playfair)",
+          "var(--font-noto-serif-kr)",
+          "Georgia",
+          "serif",
+        ],
+        body: [
+          "var(--font-inter)",
+          "var(--font-noto-sans-kr)",
+          "-apple-system",
+          "sans-serif",
+        ],
       },
       maxWidth: {
         content: "1280px",
