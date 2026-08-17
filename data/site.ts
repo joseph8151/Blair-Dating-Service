@@ -7,8 +7,6 @@ export const siteConfig = {
   description:
     "BLAIR DATING is a curated, consultation-based premium matchmaking service specializing in global dating, premium introductions, and faith-based dating.",
   url: "https://www.blairdating.com",
-  ogImage:
-    "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=1200&auto=format&fit=crop",
   locale: "ko_KR",
   instagramUrl: "https://instagram.com/blairdating",
 };
