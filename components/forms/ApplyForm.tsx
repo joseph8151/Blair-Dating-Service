@@ -124,8 +124,8 @@ export function ApplyForm() {
   if (submitted) {
     return (
       <FormSuccess
-        title="Thank You."
-        description="Your Profile Is Under Review. 담당 매니저가 프로필을 검토한 뒤 순차적으로 연락드립니다."
+        title="등록해주셔서 감사합니다."
+        description="보내주신 프로필은 담당 매니저가 정성껏 검토합니다. 어울리는 매칭이 있을 때, 가장 먼저 연락드리겠습니다."
       />
     );
   }
@@ -288,7 +288,7 @@ export function ApplyForm() {
       />
 
       <Button type="submit" size="lg" disabled={submitting} className="w-full sm:w-auto">
-        {submitting ? "제출 중..." : "BLAIR DATING 지원하기"}
+        {submitting ? "등록하는 중..." : "매칭 후보로 등록 완료하기"}
       </Button>
     </form>
   );

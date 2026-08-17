@@ -24,19 +24,28 @@ export function SectionHeading({
       )}
     >
       {eyebrow ? (
-        <p
-          className={cn(
-            "mb-4 text-xs font-body font-semibold uppercase tracking-widest2",
-            light ? "text-white/70" : "text-rose"
-          )}
-        >
-          {eyebrow}
-        </p>
+        <div className={cn("mb-5 flex flex-col gap-3", align === "center" && "items-center")}>
+          <span
+            className={cn(
+              "gold-rule",
+              align === "center" && "mx-auto bg-none"
+            )}
+            style={align === "center" ? { background: "#C8B38A" } : undefined}
+          />
+          <p
+            className={cn(
+              "font-body text-xs font-semibold uppercase tracking-widest2",
+              light ? "text-cream/70" : "text-ink-light"
+            )}
+          >
+            {eyebrow}
+          </p>
+        </div>
       ) : null}
       <h2
         className={cn(
-          "font-display text-3xl leading-[1.15] sm:text-4xl lg:text-[2.75rem]",
-          light ? "text-white" : "text-ink"
+          "font-display text-3xl leading-[1.18] tracking-[-0.01em] sm:text-4xl lg:text-[2.85rem]",
+          light ? "text-cream" : "text-ink"
         )}
       >
         {title}
@@ -44,8 +53,8 @@ export function SectionHeading({
       {description ? (
         <p
           className={cn(
-            "mt-5 font-body text-base leading-relaxed sm:text-lg",
-            light ? "text-white/80" : "text-ink/70"
+            "mt-6 font-body text-base leading-[1.85] sm:text-lg",
+            light ? "text-cream/75" : "text-ink/65"
           )}
         >
           {description}

@@ -5,7 +5,7 @@ import { trackEvent } from "@/lib/analytics";
 
 export function StickyMobileCta() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 flex items-center gap-3 border-t border-line bg-white/95 px-4 py-3 backdrop-blur-sm lg:hidden [padding-bottom:calc(0.75rem+env(safe-area-inset-bottom))]">
+    <div className="fixed inset-x-0 bottom-0 z-40 flex items-center gap-3 border-t border-line bg-cream/95 px-4 py-3 shadow-[0_-12px_30px_-18px_rgba(34,33,38,0.25)] backdrop-blur-sm lg:hidden [padding-bottom:calc(0.75rem+env(safe-area-inset-bottom))]">
       <Button
         href="/consultation"
         variant="outline"

@@ -8,7 +8,7 @@ import { programs } from "@/data/programs";
 
 export function Programs() {
   return (
-    <section id="programs" className="bg-white py-20 sm:py-28">
+    <section id="programs" className="bg-off-white py-24 sm:py-32">
       <Container>
         <Reveal>
           <SectionHeading
@@ -38,7 +38,7 @@ export function Programs() {
         </div>
       </div>
 
-      <Container className="mt-14 hidden grid-cols-3 gap-6 lg:grid">
+      <Container className="mt-14 hidden grid-cols-3 gap-7 lg:grid">
         {programs.map((program, i) => (
           <Reveal key={program.id} delay={i * 100}>
             <ProgramCard program={program} />
@@ -51,18 +51,20 @@ export function Programs() {
 
 function ProgramCard({ program }: { program: (typeof programs)[number] }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-3xl bg-off-white shadow-card">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-cream transition-all duration-500 hover:-translate-y-1.5 hover:shadow-card">
+      <span className="absolute inset-x-0 top-0 z-10 h-[3px] origin-left scale-x-0 bg-gold transition-transform duration-500 group-hover:scale-x-100" />
       <div className="relative aspect-[4/3] w-full overflow-hidden">
         <Image
           src={program.image}
           alt={program.imageAlt}
           fill
           sizes="(min-width: 1024px) 33vw, 86vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/25 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
       </div>
       <div className="flex flex-1 flex-col p-7 sm:p-8">
-        <p className="font-body text-[11px] font-semibold uppercase tracking-widest2 text-rose">
+        <p className="font-body text-[11px] font-semibold uppercase tracking-widest2 text-blush-soft">
           {program.eyebrow}
         </p>
         <h3 className="mt-3 font-display text-2xl leading-tight text-ink">
@@ -72,16 +74,16 @@ function ProgramCard({ program }: { program: (typeof programs)[number] }) {
             </span>
           ))}
         </h3>
-        <p className="mt-4 font-body text-sm leading-relaxed text-ink/65">
+        <p className="mt-4 font-body text-sm leading-[1.8] text-ink/60">
           {program.description}
         </p>
-        <ul className="mt-5 flex flex-col gap-2">
+        <ul className="mt-5 flex flex-col gap-2.5">
           {program.points.map((point) => (
             <li
               key={point}
-              className="flex items-start gap-2 font-body text-[13px] leading-snug text-ink/60"
+              className="flex items-start gap-2.5 font-body text-[13px] leading-snug text-ink/55"
             >
-              <span className="mt-[7px] h-1 w-1 flex-none rounded-full bg-rose" />
+              <span className="mt-[7px] h-1 w-1 flex-none rounded-full bg-gold" />
               {point}
             </li>
           ))}

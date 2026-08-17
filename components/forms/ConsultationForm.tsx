@@ -124,8 +124,8 @@ export function ConsultationForm() {
   if (submitted) {
     return (
       <FormSuccess
-        title="Thank You."
-        description="상담 신청이 접수되었습니다. 담당 매니저가 비공개로 확인 후 순차적으로 연락드립니다."
+        title="상담 신청이 접수되었습니다."
+        description="담당 매니저가 비공개로 내용을 확인한 뒤, 순차적으로 연락드리겠습니다. 조금만 기다려주세요."
       />
     );
   }
@@ -284,7 +284,7 @@ export function ConsultationForm() {
       />
 
       <Button type="submit" size="lg" disabled={submitting} className="w-full sm:w-auto">
-        {submitting ? "제출 중..." : "비공개 상담 신청하기"}
+        {submitting ? "신청하는 중..." : "비공개 상담 예약하기"}
       </Button>
     </form>
   );

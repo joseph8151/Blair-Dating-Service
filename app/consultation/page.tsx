@@ -11,19 +11,20 @@ export const metadata: Metadata = {
 
 export default function ConsultationPage() {
   return (
-    <div className="pb-24 pt-28 sm:pt-32">
+    <div className="ambient-glow bg-off-white pb-24 pt-28 sm:pt-32">
       <Container className="max-w-2xl">
-        <p className="mb-4 font-body text-xs font-semibold uppercase tracking-widest2 text-rose">
+        <span className="gold-rule" />
+        <p className="mb-4 mt-4 font-body text-xs font-semibold uppercase tracking-widest2 text-ink-light">
           Private Consultation
         </p>
-        <h1 className="font-display text-3xl leading-tight text-ink sm:text-4xl">
+        <h1 className="font-display text-3xl leading-tight tracking-[-0.01em] text-ink sm:text-4xl">
           Tell Us Who You&rsquo;re Looking For.
         </h1>
-        <p className="mt-5 inline-block rounded-full bg-blush/15 px-4 py-2 font-body text-xs font-medium text-rose">
+        <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-blush/12 px-4 py-2 font-body text-xs font-medium text-blush-soft">
           상담 내용은 비공개로 관리됩니다.
         </p>
 
-        <div className="mt-12">
+        <div className="mt-12 rounded-[1.75rem] border border-line bg-cream p-6 shadow-soft sm:p-10">
           <Suspense fallback={null}>
             <ConsultationForm />
           </Suspense>

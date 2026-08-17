@@ -10,9 +10,9 @@ export function Concierge() {
   if (!featureFlags.conciergeEnabled) return null;
 
   return (
-    <section className="bg-white py-20 sm:py-28">
+    <section className="bg-cream py-24 sm:py-32">
       <Container>
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
           <Reveal>
             <SectionHeading
               eyebrow="Beyond Matching"
@@ -37,7 +37,7 @@ export function Concierge() {
               {conciergeServices.map((service) => (
                 <li
                   key={service}
-                  className="rounded-2xl border border-line px-6 py-5 font-body text-sm text-ink/70"
+                  className="rounded-2xl border border-line bg-off-white px-6 py-5 font-body text-sm text-ink/65 transition-colors duration-300 hover:border-blush-soft/40"
                 >
                   {service}
                 </li>

@@ -7,7 +7,7 @@ import { testimonials } from "@/data/testimonials";
 // NOTE: testimonials are demo content — see data/testimonials.ts for details.
 export function SuccessStories() {
   return (
-    <section id="success-stories" className="py-20 sm:py-28">
+    <section id="success-stories" className="bg-off-white py-24 sm:py-32">
       <Container>
         <Reveal>
           <SectionHeading eyebrow="Success Stories" title="Real Introductions, Real Chemistry." />
@@ -21,14 +21,17 @@ export function SuccessStories() {
               key={t.attribution}
               className="w-[82%] flex-none snap-center sm:w-auto"
             >
-              <figure className="flex h-full flex-col rounded-3xl bg-white p-8 shadow-card">
-                <Quote className="text-blush-soft" size={22} />
-                <blockquote className="mt-5 flex-1 font-body text-[15px] leading-relaxed text-ink/75">
+              <figure className="relative flex h-full flex-col rounded-2xl border border-line bg-cream p-8 shadow-soft transition-shadow duration-300 hover:shadow-card">
+                <Quote className="text-gold" size={24} strokeWidth={1.5} />
+                <blockquote className="mt-6 flex-1 font-body text-[15px] leading-[1.85] text-ink/70">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
-                <figcaption className="mt-6 font-body text-xs font-medium uppercase tracking-wide text-ink/45">
-                  {t.attribution}
-                </figcaption>
+                <div className="mt-6 flex items-center gap-3 border-t border-line pt-5">
+                  <span className="h-px w-6 bg-blush-soft" />
+                  <figcaption className="font-body text-xs font-medium uppercase tracking-wide text-ink-light">
+                    {t.attribution}
+                  </figcaption>
+                </div>
               </figure>
             </div>
           ))}

@@ -13,20 +13,26 @@ export function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-20 sm:py-28">
+    <section id="faq" className="bg-off-white py-24 sm:py-32">
       <Container className="max-w-3xl">
         <Reveal>
           <SectionHeading eyebrow="FAQ" title="Frequently Asked Questions" align="left" />
         </Reveal>
 
-        <div className="mt-12 divide-y divide-line border-t border-line">
+        <div className="mt-12 flex flex-col gap-3">
           {faqItems.map((item, index) => {
             const isOpen = openIndex === index;
             return (
-              <div key={item.question}>
+              <div
+                key={item.question}
+                className={cn(
+                  "overflow-hidden rounded-2xl border bg-cream transition-colors duration-300",
+                  isOpen ? "border-blush-soft/40" : "border-line"
+                )}
+              >
                 <button
                   type="button"
-                  className="flex w-full items-center justify-between gap-6 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left sm:px-7"
                   onClick={() => {
                     const next = isOpen ? null : index;
                     setOpenIndex(next);
@@ -37,22 +43,26 @@ export function Faq() {
                   <span className="font-body text-[15px] font-medium text-ink sm:text-base">
                     {item.question}
                   </span>
-                  <Plus
-                    size={18}
+                  <span
                     className={cn(
-                      "flex-none text-rose transition-transform duration-300",
-                      isOpen && "rotate-45"
+                      "flex h-7 w-7 flex-none items-center justify-center rounded-full transition-colors duration-300",
+                      isOpen ? "bg-blush-soft text-cream" : "bg-ink/[0.04] text-ink/50"
                     )}
-                  />
+                  >
+                    <Plus
+                      size={14}
+                      className={cn("transition-transform duration-300", isOpen && "rotate-45")}
+                    />
+                  </span>
                 </button>
                 <div
                   className={cn(
                     "grid overflow-hidden transition-all duration-300",
-                    isOpen ? "grid-rows-[1fr] pb-6 opacity-100" : "grid-rows-[0fr] opacity-0"
+                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                   )}
                 >
-                  <div className="overflow-hidden">
-                    <p className="font-body text-sm leading-relaxed text-ink/60">
+                  <div className="overflow-hidden px-6 pb-6 sm:px-7">
+                    <p className="font-body text-sm leading-[1.85] text-ink/60">
                       {item.answer}
                     </p>
                   </div>

@@ -17,16 +17,16 @@ export default function TwitterImage() {
           alignItems: "flex-start",
           justifyContent: "center",
           padding: "90px",
-          background: "#292929",
+          background: "#222126",
           backgroundImage:
-            "radial-gradient(circle at 82% 30%, rgba(243,166,184,0.35), transparent 55%)",
+            "radial-gradient(circle at 82% 30%, rgba(216,161,175,0.3), transparent 55%)",
         }}
       >
         <span
           style={{
             fontSize: 26,
             letterSpacing: 6,
-            color: "#F3A6B8",
+            color: "#C8B38A",
             fontFamily: "Georgia, serif",
             marginBottom: 28,
           }}

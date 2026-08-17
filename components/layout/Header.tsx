@@ -40,8 +40,8 @@ export function Header() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled || open
-          ? "bg-off-white/95 shadow-soft backdrop-blur-sm"
-          : "bg-transparent"
+          ? "border-b border-line bg-off-white/95 shadow-soft backdrop-blur-sm"
+          : "border-b border-transparent bg-transparent"
       )}
     >
       <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between px-5 sm:h-20 sm:px-8 xl:px-10">
@@ -49,7 +49,7 @@ export function Header() {
           href="/"
           className={cn(
             "flex-none font-display text-lg tracking-[0.14em] sm:text-xl lg:text-ink",
-            lightHeader ? "text-white" : "text-ink"
+            lightHeader ? "text-cream" : "text-ink"
           )}
           onClick={() => setOpen(false)}
         >
@@ -61,9 +61,10 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="font-body text-[13px] font-medium text-ink/70 transition-colors hover:text-ink whitespace-nowrap"
+              className="group relative whitespace-nowrap font-body text-[13px] font-medium text-ink/70 transition-colors hover:text-ink"
             >
               {item.label}
+              <span className="absolute -bottom-1 left-0 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </nav>
@@ -92,7 +93,7 @@ export function Header() {
           aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
           className={cn(
             "flex h-10 w-10 items-center justify-center lg:hidden",
-            lightHeader ? "text-white" : "text-ink"
+            lightHeader ? "text-cream" : "text-ink"
           )}
           onClick={() => setOpen((v) => !v)}
         >

@@ -20,16 +20,16 @@ export function FieldWrapper({
     <div className={cn("flex flex-col gap-2", className)}>
       <label htmlFor={name} className="font-body text-sm font-medium text-ink">
         {label}
-        {required ? <span className="ml-0.5 text-rose">*</span> : null}
+        {required ? <span className="ml-0.5 text-blush-soft">*</span> : null}
       </label>
       {children}
-      {error ? <p className="font-body text-xs text-rose">{error}</p> : null}
+      {error ? <p className="font-body text-xs text-blush-soft">{error}</p> : null}
     </div>
   );
 }
 
 const inputClasses =
-  "w-full rounded-xl border border-ink/15 bg-white px-4 py-3 font-body text-sm text-ink placeholder:text-ink/35 outline-none transition-colors focus:border-rose";
+  "w-full rounded-2xl border border-line bg-cream px-4 py-3.5 font-body text-sm text-ink placeholder:text-ink/35 outline-none transition-all duration-200 focus:border-blush-soft focus:ring-4 focus:ring-blush-soft/10";
 
 export function TextField(
   props: BaseProps &
@@ -38,7 +38,7 @@ export function TextField(
   const { label, name, error, required, className, ...rest } = props;
   return (
     <FieldWrapper label={label} name={name} error={error} required={required}>
-      <input id={name} name={name} className={cn(inputClasses, error && "border-rose")} {...rest} />
+      <input id={name} name={name} className={cn(inputClasses, error && "border-blush-soft")} {...rest} />
     </FieldWrapper>
   );
 }
@@ -54,7 +54,7 @@ export function TextareaField(
         id={name}
         name={name}
         rows={4}
-        className={cn(inputClasses, "resize-none", error && "border-rose")}
+        className={cn(inputClasses, "resize-none", error && "border-blush-soft")}
         {...rest}
       />
     </FieldWrapper>
@@ -71,7 +71,7 @@ export function SelectField(
       <select
         id={name}
         name={name}
-        className={cn(inputClasses, "appearance-none bg-white", error && "border-rose")}
+        className={cn(inputClasses, "appearance-none bg-cream", error && "border-blush-soft")}
         {...rest}
       >
         <option value="">선택해주세요</option>
@@ -106,7 +106,7 @@ export function CheckboxGroup({
     <fieldset className="flex flex-col gap-3">
       <legend className="font-body text-sm font-medium text-ink">
         {legend}
-        {required ? <span className="ml-0.5 text-rose">*</span> : null}
+        {required ? <span className="ml-0.5 text-blush-soft">*</span> : null}
       </legend>
       <div className="flex flex-wrap gap-2">
         {options.map((opt) => {
@@ -115,10 +115,10 @@ export function CheckboxGroup({
             <label
               key={opt.value}
               className={cn(
-                "cursor-pointer rounded-full border px-4 py-2 font-body text-sm transition-colors",
+                "cursor-pointer rounded-full border px-4 py-2.5 font-body text-sm transition-all duration-200",
                 checked
-                  ? "border-rose bg-blush/15 text-rose"
-                  : "border-ink/15 text-ink/70 hover:border-ink/30"
+                  ? "border-blush-soft bg-blush/12 text-blush-soft"
+                  : "border-line text-ink/65 hover:border-ink/25"
               )}
             >
               <input
@@ -140,7 +140,7 @@ export function CheckboxGroup({
           );
         })}
       </div>
-      {error ? <p className="font-body text-xs text-rose">{error}</p> : null}
+      {error ? <p className="font-body text-xs text-blush-soft">{error}</p> : null}
     </fieldset>
   );
 }
@@ -166,7 +166,7 @@ export function RadioGroup({
     <fieldset className="flex flex-col gap-3">
       <legend className="font-body text-sm font-medium text-ink">
         {legend}
-        {required ? <span className="ml-0.5 text-rose">*</span> : null}
+        {required ? <span className="ml-0.5 text-blush-soft">*</span> : null}
       </legend>
       <div className="flex flex-wrap gap-2">
         {options.map((opt) => {
@@ -175,10 +175,10 @@ export function RadioGroup({
             <label
               key={opt.value}
               className={cn(
-                "cursor-pointer rounded-full border px-4 py-2 font-body text-sm transition-colors",
+                "cursor-pointer rounded-full border px-4 py-2.5 font-body text-sm transition-all duration-200",
                 checked
-                  ? "border-rose bg-blush/15 text-rose"
-                  : "border-ink/15 text-ink/70 hover:border-ink/30"
+                  ? "border-blush-soft bg-blush/12 text-blush-soft"
+                  : "border-line text-ink/65 hover:border-ink/25"
               )}
             >
               <input
@@ -194,7 +194,7 @@ export function RadioGroup({
           );
         })}
       </div>
-      {error ? <p className="font-body text-xs text-rose">{error}</p> : null}
+      {error ? <p className="font-body text-xs text-blush-soft">{error}</p> : null}
     </fieldset>
   );
 }
@@ -211,17 +211,17 @@ export function ConsentCheckbox({
   label: string;
 }) {
   return (
-    <div className="flex flex-col gap-2 rounded-xl bg-off-white p-5">
+    <div className="flex flex-col gap-2 rounded-2xl border border-line bg-off-white p-5">
       <label className="flex cursor-pointer items-start gap-3">
         <input
           type="checkbox"
           checked={checked}
           onChange={(e) => onChange(e.target.checked)}
-          className="mt-0.5 h-4 w-4 flex-none accent-rose"
+          className="mt-0.5 h-4 w-4 flex-none accent-blush-soft"
         />
-        <span className="font-body text-[13px] leading-relaxed text-ink/70">{label}</span>
+        <span className="font-body text-[13px] leading-relaxed text-ink/65">{label}</span>
       </label>
-      {error ? <p className="font-body text-xs text-rose">{error}</p> : null}
+      {error ? <p className="font-body text-xs text-blush-soft">{error}</p> : null}
     </div>
   );
 }

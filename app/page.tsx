@@ -3,6 +3,7 @@ import { Intro } from "@/components/sections/Intro";
 import { Programs } from "@/components/sections/Programs";
 import { WhoFor } from "@/components/sections/WhoFor";
 import { HowItWorks } from "@/components/sections/HowItWorks";
+import { TrustSection } from "@/components/sections/TrustSection";
 import { MatchPreference } from "@/components/sections/MatchPreference";
 import { MemberQuality } from "@/components/sections/MemberQuality";
 import { RecruitApplicants } from "@/components/sections/RecruitApplicants";
@@ -21,6 +22,7 @@ export default function Home() {
       <Programs />
       <WhoFor />
       <HowItWorks />
+      <TrustSection />
       <MatchPreference />
       <MemberQuality />
       <RecruitApplicants />

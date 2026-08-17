@@ -9,22 +9,37 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        blush: {
-          DEFAULT: "#F3A6B8",
-          soft: "#E98FA6",
-        },
-        rose: {
-          DEFAULT: "#D96B89",
-        },
+        // Premium boutique palette — see docs/brand or the redesign brief.
+        // Soft Ivory: primary page background
         off: {
-          white: "#FAF9F7",
+          white: "#F7F4F1",
         },
+        // Warm White: card / panel surfaces (never pure #FFFFFF)
+        cream: {
+          DEFAULT: "#FCFAF8",
+        },
+        // Dusty Rose (light accent) / Deep Rose Mauve (primary accent, CTAs)
+        blush: {
+          DEFAULT: "#D8A1AF",
+          soft: "#B97C8D",
+        },
+        // Hover state for mauve — deepened, not brightened
+        rose: {
+          DEFAULT: "#A16D80",
+        },
+        // Charcoal (text, dark sections) / Warm Gray (secondary text)
         ink: {
-          DEFAULT: "#292929",
-          light: "#A8A8A8",
+          DEFAULT: "#222126",
+          light: "#8C8682",
         },
+        // Light Gray — borders, dividers
         line: {
-          DEFAULT: "#F1F1F1",
+          DEFAULT: "#E8E2DD",
+        },
+        // Subtle Champagne Gold — used sparingly for dividers, accents
+        gold: {
+          DEFAULT: "#C8B38A",
+          soft: "#DCCBA6",
         },
       },
       fontFamily: {
@@ -38,8 +53,9 @@ const config: Config = {
         widest2: "0.22em",
       },
       boxShadow: {
-        card: "0 12px 40px -18px rgba(41, 41, 41, 0.18)",
-        soft: "0 4px 24px -8px rgba(41, 41, 41, 0.1)",
+        card: "0 20px 50px -20px rgba(34, 33, 38, 0.16)",
+        soft: "0 4px 28px -10px rgba(34, 33, 38, 0.12)",
+        lift: "0 14px 34px -12px rgba(161, 109, 128, 0.38)",
       },
       animation: {
         "fade-up": "fadeUp 0.7s ease forwards",
