@@ -12,9 +12,9 @@ export function Programs() {
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Our Match"
-            title="Three Ways We Curate Your Match."
-            description="BLAIR DATING이 특히 전문성을 가진 세 가지 매칭 영역입니다. 상담을 통해 당신에게 맞는 방향을 함께 찾아드립니다."
+            eyebrow="Beyond the First Impression"
+            title="Attraction & Faith, Considered Fully."
+            description="Global Match는 별도 섹션에서 더 자세히 다룹니다. 여기서는 매력과 신앙이라는, 조건표만으로는 설명되지 않는 두 기준을 깊이 있게 큐레이션하는 방식을 소개합니다."
           />
         </Reveal>
       </Container>

@@ -4,9 +4,9 @@ import { ApplyForm } from "@/components/forms/ApplyForm";
 import { applyPolicyPoints } from "@/data/config";
 
 export const metadata: Metadata = {
-  title: "매칭 후보 등록",
+  title: "Match Pool 등록",
   description:
-    "BLAIR DATING의 매칭 후보로 등록해보세요. 등록비 없이, 원하지 않는 소개는 언제든 거절할 수 있습니다.",
+    "누군가가 찾고 있는 사람이 당신일 수도 있습니다. BLAIR Match Pool에 등록하면, 잘 맞는 회원이 있을 때 매니저가 먼저 연락합니다.",
 };
 
 export default function ApplyPage() {
@@ -15,14 +15,18 @@ export default function ApplyPage() {
       <Container className="max-w-2xl">
         <span className="gold-rule" />
         <p className="mb-4 mt-4 font-body text-xs font-semibold uppercase tracking-widest2 text-ink-light">
-          Apply as a Match
+          Become a Match
         </p>
         <h1 className="font-display text-3xl leading-tight tracking-[-0.01em] text-ink sm:text-4xl">
-          매칭 후보로 등록하기
+          Someone May Be Looking
+          <br />
+          for Someone Like You.
         </h1>
         <p className="mt-5 font-body text-[15px] leading-[1.85] text-ink/55">
-          작성해주신 정보는 담당 매니저가 정성껏 검토한 뒤, 매칭 목적으로만
-          활용됩니다.
+          누군가가 찾고 있는 사람이 당신일 수도 있습니다. BLAIR Match
+          Pool에 등록하면, 당신과 잘 맞는 회원이 있을 때 BLAIR 매니저가
+          먼저 연락합니다. 프로필이 불특정 다수에게 무작위로 노출되는 앱
+          방식과는 다릅니다.
         </p>
         <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-1">
           {applyPolicyPoints.map((point) => (

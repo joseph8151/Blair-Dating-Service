@@ -13,7 +13,7 @@ import {
 import { FormSuccess } from "@/components/forms/FormSuccess";
 import { Button } from "@/components/ui/Button";
 import { isRequired, isValidAge, isValidPhone } from "@/lib/validation";
-import { submitConsultationRequest } from "@/lib/mockSubmit";
+import { submitConsultationRequest } from "@/lib/submitForm";
 import { trackEvent } from "@/lib/analytics";
 
 type FormState = {

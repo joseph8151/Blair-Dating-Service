@@ -6,10 +6,13 @@ import { Container } from "@/components/ui/Container";
 import { trustPoints } from "@/data/whoFor";
 import { trackEvent } from "@/lib/analytics";
 
+// NOTE: Unsplash photo IDs occasionally get retired upstream (one was already
+// found dead in production). These two are confirmed live in production as
+// of this pass — swap for real curated photography before launch either way.
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=1600&auto=format&fit=crop";
 const HERO_IMAGE_DETAIL =
-  "https://images.unsplash.com/photo-1521543387913-ce02bec1889b?q=80&w=800&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=800&auto=format&fit=crop";
 
 export function Hero() {
   return (
@@ -19,22 +22,21 @@ export function Hero() {
         <div>
           <span className="gold-rule" />
           <p className="mb-6 mt-4 font-body text-xs font-semibold uppercase tracking-widest2 text-ink-light">
-            Private Matchmaking, Curated Introductions
+            Curated Dating, Built Around Your Preferences
           </p>
           <h1 className="font-display text-5xl leading-[1.1] tracking-[-0.01em] text-ink xl:text-[3.6rem]">
-            Meet Someone
-            <br />
-            Worth Meeting.
+            Meet Your Type.
           </h1>
           <p className="mt-8 font-body text-xl font-medium leading-[1.6] text-ink/85">
-            당신에게 어울리는 만남은,
+            당신이 원하는 사람은 어떤 사람인가요?
             <br />
-            더 신중하게 설계되어야 합니다.
+            외모, 분위기, 국적, 문화, 종교, 라이프스타일까지 —
+            <br />
+            사람마다 중요하게 생각하는 기준은 다릅니다.
           </p>
           <p className="mt-5 max-w-md font-body text-[15px] leading-[1.9] text-ink/55">
-            외국인과의 자연스러운 만남, 매력이 분명한 이성과의 프리미엄
-            매칭, 종교와 가치관을 함께 고려한 소개까지 — BLAIR DATING은
-            상담을 기반으로 한 프라이빗 매치메이킹을 제안합니다.
+            수백 개의 프로필을 직접 찾지 마세요. BLAIR DATING이 당신의
+            취향을 듣고 어울리는 상대를 직접 찾아드립니다.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
@@ -43,7 +45,7 @@ export function Hero() {
               size="lg"
               onClick={() => trackEvent("cta_consultation_click", { location: "hero" })}
             >
-              프라이빗 상담 신청하기
+              내 이상형 상담하기
             </Button>
             <Button
               href="/apply"
@@ -71,7 +73,7 @@ export function Hero() {
           {/* Offset color panel — the base layer that reads as depth behind the photo */}
           <div className="absolute -right-4 -top-4 h-full w-full rounded-[1.75rem] bg-gradient-to-br from-blush-soft/30 via-gold/20 to-transparent xl:-right-5 xl:-top-5" />
 
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] shadow-[0_40px_80px_-30px_rgba(34,33,38,0.45)] ring-1 ring-cream/50">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] shadow-[0_40px_80px_-30px_rgba(39,39,42,0.45)] ring-1 ring-cream/50">
             <Image
               src={HERO_IMAGE}
               alt="세련된 루프탑에서 데이트하는 남녀"
@@ -87,7 +89,7 @@ export function Hero() {
           <div className="absolute -left-10 -top-10 hidden h-36 w-28 overflow-hidden rounded-2xl border-[3px] border-cream shadow-card xl:block">
             <Image
               src={HERO_IMAGE_DETAIL}
-              alt="고급 레스토랑에서의 디테일 컷"
+              alt="파리 카페에서의 디테일 컷"
               fill
               sizes="200px"
               className="object-cover"
@@ -95,9 +97,9 @@ export function Hero() {
           </div>
 
           <div className="absolute -bottom-6 -right-2 hidden rounded-2xl border border-line bg-cream px-6 py-5 shadow-card xl:block">
-            <p className="font-display text-2xl text-blush-soft">Est. 2021</p>
+            <p className="font-display text-2xl text-blush-soft">Curated</p>
             <p className="mt-1 font-body text-[11px] uppercase tracking-wide text-ink-light">
-              Private Curation Since
+              Around Your Preferences
             </p>
           </div>
         </div>
@@ -119,17 +121,15 @@ export function Hero() {
         <div className="relative px-5 pb-8">
           <span
             className="block h-px w-8"
-            style={{ background: "linear-gradient(90deg, #C8B38A, transparent)" }}
+            style={{ background: "linear-gradient(90deg, #CBB99A, transparent)" }}
           />
-          <h1 className="mt-4 font-display text-[2.6rem] leading-[1.08] text-cream">
-            Meet Someone
-            <br />
-            Worth Meeting.
+          <h1 className="mt-4 font-display text-[2.8rem] leading-[1.08] text-cream">
+            Meet Your Type.
           </h1>
           <p className="mt-4 font-body text-[17px] font-medium leading-[1.6] text-cream/90">
-            당신에게 어울리는 만남은,
+            외모, 국적, 종교, 라이프스타일까지 —
             <br />
-            더 신중하게 설계되어야 합니다.
+            당신이 원하는 기준을 알려주세요.
           </p>
 
           <div className="mt-7 flex flex-col gap-3">
@@ -139,7 +139,7 @@ export function Hero() {
               className="w-full"
               onClick={() => trackEvent("cta_consultation_click", { location: "hero_mobile" })}
             >
-              프라이빗 상담 신청하기
+              내 이상형 상담하기
             </Button>
             <Button
               href="/apply"

@@ -8,8 +8,8 @@ html {
 }
 
 body {
-  background-color: #f7f4f1;
-  color: #222126;
+  background-color: #fcf9f5;
+  color: #27272a;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,8 +20,8 @@ body {
 }
 
 ::selection {
-  background-color: #b97c8d;
-  color: #fcfaf8;
+  background-color: #a96f7c;
+  color: #ffffff;
 }
 
 .animate-on-scroll {
@@ -46,24 +46,24 @@ body {
 }
 
 /* A restrained, hand-set divider used under eyebrow labels — the one
-   place champagne gold appears with any regularity. */
+   place champagne beige appears with any regularity. */
 .gold-rule {
   display: block;
   width: 34px;
   height: 1px;
-  background: linear-gradient(90deg, #c8b38a, transparent);
+  background: linear-gradient(90deg, #cbb99a, transparent);
 }
 
 /* Faint radial warmth for hero / dark section backgrounds — texture, not decoration. */
 .ambient-glow {
   background-image: radial-gradient(
       circle at 18% 20%,
-      rgba(216, 161, 175, 0.16),
+      rgba(217, 166, 174, 0.16),
       transparent 45%
     ),
     radial-gradient(
       circle at 82% 78%,
-      rgba(200, 179, 138, 0.12),
+      rgba(203, 185, 154, 0.12),
       transparent 50%
     );
 }
@@ -71,12 +71,12 @@ body {
 .ambient-glow-dark {
   background-image: radial-gradient(
       circle at 20% 15%,
-      rgba(216, 161, 175, 0.14),
+      rgba(217, 166, 174, 0.14),
       transparent 45%
     ),
     radial-gradient(
       circle at 85% 85%,
-      rgba(200, 179, 138, 0.1),
+      rgba(203, 185, 154, 0.1),
       transparent 50%
     );
 }

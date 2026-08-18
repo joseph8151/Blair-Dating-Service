@@ -12,7 +12,7 @@ import { PhotoUploadField } from "@/components/forms/PhotoUploadField";
 import { FormSuccess } from "@/components/forms/FormSuccess";
 import { Button } from "@/components/ui/Button";
 import { isRequired, isValidEmail, isValidPhone, isValidAge } from "@/lib/validation";
-import { submitApplicantProfile } from "@/lib/mockSubmit";
+import { submitApplicantProfile } from "@/lib/submitForm";
 import { trackEvent } from "@/lib/analytics";
 
 type FormState = {
@@ -74,6 +74,7 @@ export function ApplyForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -107,8 +108,10 @@ export function ApplyForm() {
     if (Object.keys(nextErrors).length > 0) return;
 
     setSubmitting(true);
+    setSubmitError(null);
     const data = new FormData();
     Object.entries(form).forEach(([key, value]) => data.append(key, value));
+    data.append("_replyto", form.email);
     if (mainPhoto[0]) data.append("mainPhoto", mainPhoto[0]);
     additionalPhotos.forEach((file, i) => data.append(`additionalPhoto${i}`, file));
 
@@ -118,6 +121,8 @@ export function ApplyForm() {
     if (result.ok) {
       trackEvent("apply_form_submit", { relationshipGoal: form.relationshipGoal });
       setSubmitted(true);
+    } else {
+      setSubmitError(result.error);
     }
   }
 
@@ -286,6 +291,10 @@ export function ApplyForm() {
         error={errors.consent}
         label="개인정보 수집 및 이용에 동의합니다. 수집된 정보는 매칭 상담 목적으로만 사용되며, 본인 동의 없이 제3자에게 제공되지 않습니다."
       />
+
+      {submitError ? (
+        <p className="font-body text-sm text-blush-soft">{submitError}</p>
+      ) : null}
 
       <Button type="submit" size="lg" disabled={submitting} className="w-full sm:w-auto">
         {submitting ? "등록하는 중..." : "매칭 후보로 등록 완료하기"}

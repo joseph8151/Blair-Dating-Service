@@ -2,6 +2,7 @@ export type Program = {
   id: string;
   eyebrow: string;
   headline: string[];
+  tagline: string;
   description: string;
   points: string[];
   cta: string;
@@ -10,38 +11,21 @@ export type Program = {
   imageAlt: string;
 };
 
+// Global Dating now has its own full section (components/sections/GlobalDating.tsx) —
+// this file covers the two deeper specialty matches: Premium and Faith.
 export const programs: Program[] = [
-  {
-    id: "global-dating",
-    eyebrow: "GLOBAL DATING",
-    headline: ["Different Culture.", "Same Chemistry."],
-    description:
-      "외국인과의 자연스러운 만남을 원하는 분들을 위한 글로벌 매칭입니다. 미국, 캐나다, 유럽 등 다양한 국적의 회원과 연결해드립니다.",
-    points: [
-      "한국 거주 외국인",
-      "해외 경험이 많은 한국인",
-      "국제적인 라이프스타일을 선호하는 회원",
-      "영어 커뮤니케이션이 가능한 회원",
-    ],
-    cta: "Global Dating 상담하기",
-    ctaHref: "/consultation?interest=global",
-    image:
-      "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=1400&auto=format&fit=crop",
-    imageAlt: "루프탑 바에서 대화를 나누는 커플",
-  },
   {
     id: "premium-dating",
     eyebrow: "PREMIUM DATING",
     headline: ["Attraction Matters."],
+    tagline: "좋은 사람이면서, 내가 끌리는 사람이어야 합니다.",
     description:
-      "매력적인 이성과의 수준 높은 만남을 원하는 회원을 위한 프리미엄 큐레이션. 단순 스펙이 아닌 실제 만남에서 중요한 요소를 종합적으로 고려합니다.",
+      "소개팅에서 외모와 첫인상이 중요하다고 생각하는 것은 자연스럽습니다. 하지만 BLAIR DATING의 Premium Match는 사진만 보고 연결하지 않습니다. Appearance, Style, Presence, Personality, Lifestyle, Conversation, Values를 함께 고려합니다.",
     points: [
-      "외모와 첫인상 (Attractive)",
-      "직업 및 라이프스타일 (Confident)",
-      "대화 스타일 (Interesting)",
-      "취향과 가치관 (Well-Matched)",
+      "Attraction gets you interested.",
+      "Compatibility makes it last.",
     ],
-    cta: "Premium Matching 알아보기",
+    cta: "Premium Match 알아보기",
     ctaHref: "/consultation?interest=premium",
     image:
       "https://images.unsplash.com/photo-1521543387913-ce02bec1889b?q=80&w=1400&auto=format&fit=crop",
@@ -51,15 +35,18 @@ export const programs: Program[] = [
     id: "faith-dating",
     eyebrow: "FAITH DATING",
     headline: ["Shared Faith.", "Shared Direction."],
+    tagline: "같은 믿음은 같은 방향을 바라보게 합니다.",
     description:
-      "종교와 가치관을 중요하게 생각하는 사람을 위한 매칭입니다. 종교, 신앙의 중요도, 결혼에 대한 생각, 라이프스타일, 가족관 등을 상담 과정에서 세밀하게 확인합니다.",
+      "종교가 단순한 프로필 정보가 아니라 연애와 결혼에서 중요한 가치인 회원을 위한 서비스입니다. 종교 종류만 맞추는 것이 아니라 신앙의 깊이와 실제 생활방식까지 상담을 통해 확인합니다.",
     points: [
-      "종교",
-      "신앙의 중요도",
-      "결혼에 대한 생각",
-      "라이프스타일과 가족관",
+      "Religion",
+      "Faith Commitment",
+      "Church / Religious Lifestyle",
+      "Marriage",
+      "Family & Children",
+      "Values & Lifestyle",
     ],
-    cta: "Faith Dating 상담하기",
+    cta: "Faith Match 상담하기",
     ctaHref: "/consultation?interest=faith",
     image:
       "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=1400&auto=format&fit=crop",

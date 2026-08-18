@@ -1,12 +1,14 @@
 export const whoForItems: string[] = [
-  "소개팅 앱에 지친 분",
-  "바쁜 직장인",
-  "외국인과 만나고 싶은 분",
-  "매력적인 이성과 자연스럽게 만나고 싶은 분",
-  "진지한 연애를 원하는 분",
-  "종교와 가치관이 맞는 사람을 만나고 싶은 분",
-  "지인을 통한 소개팅이 부담스러운 분",
-  "개인정보 노출을 최소화하고 싶은 분",
+  "외모와 분위기가 매력적인 사람을 만나고 싶은 분",
+  "종교가 같은 사람을 만나고 싶은 분",
+  "신앙과 결혼관이 비슷한 사람을 찾는 분",
+  "일본인과 만나고 싶은 분",
+  "중국인과 만나고 싶은 분",
+  "유럽인과 만나고 싶은 분",
+  "미국·캐나다 등 북미권 사람과 만나고 싶은 분",
+  "특정 문화권 또는 라이프스타일을 선호하는 분",
+  "소개팅 앱에서 원하는 타입을 찾기 어려웠던 분",
+  "내 취향을 공개적으로 드러내지 않고 비공개로 상담받고 싶은 분",
 ];
 
 export const coreValues = [
@@ -29,7 +31,8 @@ export const coreValues = [
 ];
 
 export const trustPoints: string[] = [
-  "1:1 Personalized Matching",
-  "Private & Confidential",
-  "Carefully Curated Members",
+  "Private Consultation",
+  "Personalized Matching",
+  "Curated Members",
+  "Confidential Service",
 ];

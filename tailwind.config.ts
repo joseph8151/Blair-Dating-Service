@@ -9,37 +9,39 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Premium boutique palette — see docs/brand or the redesign brief.
-        // Soft Ivory: primary page background
+        // V3 "Curated Around You" palette — see redesign brief.
+        // Warm Ivory: primary page background
         off: {
-          white: "#F7F4F1",
+          white: "#FCF9F5",
         },
-        // Warm White: card / panel surfaces (never pure #FFFFFF)
+        // White: card / panel surfaces
         cream: {
-          DEFAULT: "#FCFAF8",
+          DEFAULT: "#FFFFFF",
         },
-        // Dusty Rose (light accent) / Deep Rose Mauve (primary accent, CTAs)
+        // Dusty Rose (light accent) / Deep Rose (primary accent, CTAs)
         blush: {
-          DEFAULT: "#D8A1AF",
-          soft: "#B97C8D",
+          DEFAULT: "#D9A6AE",
+          soft: "#A96F7C",
+          // Soft Blush — very light pink tint for subtle section/chip backgrounds
+          pale: "#F7E9EA",
         },
-        // Hover state for mauve — deepened, not brightened
+        // Hover state for the primary accent — deepened, not brightened
         rose: {
-          DEFAULT: "#A16D80",
+          DEFAULT: "#8B5A66",
         },
         // Charcoal (text, dark sections) / Warm Gray (secondary text)
         ink: {
-          DEFAULT: "#222126",
-          light: "#8C8682",
+          DEFAULT: "#27272A",
+          light: "#AAA3A3",
         },
-        // Light Gray — borders, dividers
+        // Borders, dividers
         line: {
-          DEFAULT: "#E8E2DD",
+          DEFAULT: "#E6DEDA",
         },
-        // Subtle Champagne Gold — used sparingly for dividers, accents
+        // Champagne Beige — used sparingly for dividers, accents
         gold: {
-          DEFAULT: "#C8B38A",
-          soft: "#DCCBA6",
+          DEFAULT: "#CBB99A",
+          soft: "#DDD0BA",
         },
       },
       fontFamily: {
@@ -65,9 +67,9 @@ const config: Config = {
         widest2: "0.22em",
       },
       boxShadow: {
-        card: "0 20px 50px -20px rgba(34, 33, 38, 0.16)",
-        soft: "0 4px 28px -10px rgba(34, 33, 38, 0.12)",
-        lift: "0 14px 34px -12px rgba(161, 109, 128, 0.38)",
+        card: "0 20px 50px -20px rgba(39, 39, 42, 0.16)",
+        soft: "0 4px 28px -10px rgba(39, 39, 42, 0.12)",
+        lift: "0 14px 34px -12px rgba(139, 90, 102, 0.38)",
       },
       animation: {
         "fade-up": "fadeUp 0.7s ease forwards",
