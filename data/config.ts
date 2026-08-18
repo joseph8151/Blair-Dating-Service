@@ -3,7 +3,6 @@
 export const featureFlags = {
   conciergeEnabled: true,
   successStoriesEnabled: true,
-  statsEnabled: true,
 };
 
 // Applicant recruitment policy bullets — keep in sync with actual operating policy.

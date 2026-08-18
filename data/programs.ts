@@ -28,8 +28,8 @@ export const programs: Program[] = [
     cta: "Premium Match 알아보기",
     ctaHref: "/consultation?interest=premium",
     image:
-      "https://images.unsplash.com/photo-1521543387913-ce02bec1889b?q=80&w=1400&auto=format&fit=crop",
-    imageAlt: "고급 레스토랑에서 만나는 두 사람",
+      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1400&auto=format&fit=crop",
+    imageAlt: "세련된 도시 라이프스타일 컷",
   },
   {
     id: "faith-dating",
