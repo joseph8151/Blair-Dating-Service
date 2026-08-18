@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Check } from "lucide-react";
 import {
@@ -79,6 +79,8 @@ const steps = [
 
 export function ConsultationForm() {
   const searchParams = useSearchParams();
+  const topRef = useRef<HTMLDivElement>(null);
+  const isFirstRender = useRef(true);
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<FormState>(initialState);
   const [interests, setInterests] = useState<string[]>([]);
@@ -104,6 +106,14 @@ export function ConsultationForm() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [step]);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -178,7 +188,7 @@ export function ConsultationForm() {
   }
 
   return (
-    <div className="flex flex-col gap-8">
+    <div ref={topRef} className="flex flex-col gap-8 scroll-mt-28">
       <div>
         <div className="flex items-center justify-between font-body text-xs text-ink/45">
           <span className="font-semibold uppercase tracking-widest2 text-blush-soft">
