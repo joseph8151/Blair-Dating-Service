@@ -7,6 +7,7 @@ type EventName =
   | "cta_consultation_click"
   | "cta_apply_click"
   | "consultation_form_submit"
+  | "consultation_step_complete"
   | "apply_form_submit"
   | "faq_toggle"
   | "program_cta_click";

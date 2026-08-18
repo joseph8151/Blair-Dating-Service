@@ -29,7 +29,7 @@ export function FinalCta() {
             size="lg"
             onClick={() => trackEvent("cta_consultation_click", { location: "final_cta" })}
           >
-            내 이상형 상담하기
+            Tell Us Your Type
           </Button>
           <Button
             href="/apply"
@@ -37,7 +37,7 @@ export function FinalCta() {
             size="lg"
             onClick={() => trackEvent("cta_apply_click", { location: "final_cta" })}
           >
-            매칭 후보로 등록하기
+            Match Pool 등록하기
           </Button>
         </div>
         <p className="mt-8 font-body text-xs uppercase tracking-widest2 text-cream/40">

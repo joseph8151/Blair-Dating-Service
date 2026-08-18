@@ -30,7 +30,7 @@ export function SectionHeading({
               "gold-rule",
               align === "center" && "mx-auto bg-none"
             )}
-            style={align === "center" ? { background: "#C8B38A" } : undefined}
+            style={align === "center" ? { background: "#CBB99A" } : undefined}
           />
           <p
             className={cn(

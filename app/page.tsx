@@ -10,6 +10,8 @@ import { WhyBlair } from "@/components/sections/WhyBlair";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { TrustSection } from "@/components/sections/TrustSection";
 import { MemberQuality } from "@/components/sections/MemberQuality";
+import { MemberPreview } from "@/components/sections/MemberPreview";
+import { MatchmakerNote } from "@/components/sections/MatchmakerNote";
 import { TwoSidedCta } from "@/components/sections/TwoSidedCta";
 import { MatchCode } from "@/components/sections/MatchCode";
 import { RecruitApplicants } from "@/components/sections/RecruitApplicants";
@@ -36,6 +38,8 @@ export default function Home() {
       <HowItWorks />
       <TrustSection />
       <MemberQuality />
+      <MemberPreview />
+      <MatchmakerNote />
       <TwoSidedCta />
       <MatchCode />
       <RecruitApplicants />
