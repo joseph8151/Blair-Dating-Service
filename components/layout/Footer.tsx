@@ -43,9 +43,6 @@ export function Footer() {
 
         <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-1 font-body text-xs leading-relaxed text-cream/40 sm:grid-cols-2">
           <p>상호 {businessInfo.companyName}</p>
-          <p>대표자 {businessInfo.ceo}</p>
-          <p>사업자등록번호 {businessInfo.registrationNumber}</p>
-          <p>연락처 {businessInfo.phone}</p>
           <p>이메일 {businessInfo.email}</p>
           <p>주소 {businessInfo.address}</p>
         </div>

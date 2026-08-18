@@ -11,15 +11,8 @@ export const siteConfig = {
   instagramUrl: "https://instagram.com/blairdating",
 };
 
-// Placeholder business registration info — intentionally left as clear
-// "to be confirmed" markers rather than filled-in-looking sample data, so
-// nothing here could be mistaken for a real registered company before the
-// actual details are finalized.
 export const businessInfo = {
-  companyName: "[상호명 등록 예정]",
-  ceo: "[대표자명 등록 예정]",
-  registrationNumber: "[사업자등록번호 등록 예정]",
-  phone: "[대표 연락처 등록 예정]",
+  companyName: "블레어데이팅",
   email: "hello@blairdating.com",
-  address: "[사업장 주소 등록 예정]",
+  address: "서울시 서초구 반포대로18길 62",
 };
