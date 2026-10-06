@@ -7,28 +7,27 @@ export type Step = {
 export const steps: Step[] = [
   {
     number: "01",
-    title: "Private Consultation",
-    description: "상담폼을 작성하거나 비공개 상담을 신청합니다.",
+    title: "상담",
+    description: "상담 신청서를 받은 뒤, 매니저가 직접 연락해 이야기를 듣습니다.",
   },
   {
     number: "02",
-    title: "Preference Interview",
-    description:
-      "원하는 상대의 외모, 성격, 직업, 라이프스타일, 가치관 등을 파악합니다.",
+    title: "기준 정리",
+    description: "꼭 필요한 것과 양보할 수 있는 것을 함께 나눠 우선순위를 정합니다.",
   },
   {
     number: "03",
-    title: "Curated Match",
-    description: "BLAIR DATING이 회원 중 적합한 상대를 선별합니다.",
+    title: "후보 선별",
+    description: "정리한 기준으로 매칭 후보 중에서 맞는 분을 고릅니다.",
   },
   {
     number: "04",
-    title: "Introduction",
-    description: "양측의 의사를 확인한 후 소개를 진행합니다.",
+    title: "양측 동의 후 소개",
+    description: "두 분 모두 수락했을 때만 연락처를 전하고 일정을 잡습니다.",
   },
   {
     number: "05",
-    title: "Feedback & Next Match",
-    description: "만남 후 피드백을 반영해 다음 매칭 정확도를 높입니다.",
+    title: "피드백",
+    description: "만남 후 이야기를 듣고, 다음 소개의 기준을 다듬습니다.",
   },
 ];

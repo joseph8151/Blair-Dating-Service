@@ -1,62 +1,29 @@
 import { cn } from "@/lib/utils";
 
+// One small English label per section, then a Korean serif heading.
 export function SectionHeading({
   eyebrow,
   title,
   description,
-  align = "left",
-  light = false,
   className,
 }: {
   eyebrow?: string;
   title: React.ReactNode;
   description?: React.ReactNode;
-  align?: "left" | "center";
-  light?: boolean;
   className?: string;
 }) {
   return (
-    <div
-      className={cn(
-        "max-w-2xl",
-        align === "center" && "mx-auto text-center",
-        className
-      )}
-    >
+    <div className={cn("max-w-xl", className)}>
       {eyebrow ? (
-        <div className={cn("mb-5 flex flex-col gap-3", align === "center" && "items-center")}>
-          <span
-            className={cn(
-              "gold-rule",
-              align === "center" && "mx-auto bg-none"
-            )}
-            style={align === "center" ? { background: "#CBB99A" } : undefined}
-          />
-          <p
-            className={cn(
-              "font-body text-xs font-semibold uppercase tracking-widest2",
-              light ? "text-cream/70" : "text-ink-light"
-            )}
-          >
-            {eyebrow}
-          </p>
-        </div>
+        <p className="mb-5 font-body text-[11px] font-medium uppercase tracking-widest2 text-ink-light">
+          {eyebrow}
+        </p>
       ) : null}
-      <h2
-        className={cn(
-          "font-display text-3xl leading-[1.18] tracking-[-0.01em] sm:text-4xl lg:text-[2.85rem]",
-          light ? "text-cream" : "text-ink"
-        )}
-      >
+      <h2 className="font-display text-[1.75rem] leading-[1.35] tracking-[-0.01em] text-ink sm:text-[2.1rem]">
         {title}
       </h2>
       {description ? (
-        <p
-          className={cn(
-            "mt-6 font-body text-base leading-[1.85] sm:text-lg",
-            light ? "text-cream/75" : "text-ink/65"
-          )}
-        >
+        <p className="mt-5 font-body text-[15px] leading-[1.9] text-ink-light">
           {description}
         </p>
       ) : null}

@@ -9,76 +9,68 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // V3 "Curated Around You" palette — see redesign brief.
-        // Warm Ivory: primary page background
-        off: {
-          white: "#FCF9F5",
-        },
-        // White: card / panel surfaces
-        cream: {
-          DEFAULT: "#FFFFFF",
-        },
-        // Dusty Rose (light accent) / Deep Rose (primary accent, CTAs)
-        blush: {
-          DEFAULT: "#D9A6AE",
-          soft: "#A96F7C",
-          // Soft Blush — very light pink tint for subtle section/chip backgrounds
-          pale: "#F7E9EA",
-        },
-        // Hover state for the primary accent — deepened, not brightened
-        rose: {
-          DEFAULT: "#8B5A66",
-        },
-        // Charcoal (text, dark sections) / Warm Gray (secondary text)
+        // Quiet editorial palette: warm ivory, near-black ink, one dark brown accent.
+        paper: "#f6f3ee",
         ink: {
-          DEFAULT: "#27272A",
-          light: "#AAA3A3",
+          DEFAULT: "#1c1b19",
+          // Secondary text
+          light: "#6e6a64",
         },
-        // Borders, dividers
         line: {
-          DEFAULT: "#E6DEDA",
+          DEFAULT: "#e4dfd8",
         },
-        // Champagne Beige — used sparingly for dividers, accents
+        accent: {
+          DEFAULT: "#3f3330",
+          deep: "#2c2321",
+        },
+        // Legacy token names still used by the form pages, mapped onto the
+        // same palette so every page reads as one system.
+        off: {
+          white: "#f6f3ee",
+        },
+        cream: {
+          DEFAULT: "#fbf9f6",
+        },
+        blush: {
+          DEFAULT: "#3f3330",
+          soft: "#3f3330",
+          pale: "#ece7e0",
+        },
+        rose: {
+          DEFAULT: "#2c2321",
+        },
         gold: {
-          DEFAULT: "#CBB99A",
-          soft: "#DDD0BA",
+          DEFAULT: "#e4dfd8",
+          soft: "#e4dfd8",
         },
       },
       fontFamily: {
-        // Latin glyphs render in Playfair/Inter; Korean glyphs (absent from
-        // those fonts) fall through automatically to their Noto companion.
+        // Instrument Serif has no Hangul, so Korean headline glyphs fall
+        // through to Noto Serif KR; Latin glyphs and numerals stay in Instrument.
         display: [
-          "var(--font-playfair)",
+          "var(--font-instrument-serif)",
           "var(--font-noto-serif-kr)",
           "Georgia",
           "serif",
         ],
         body: [
-          "var(--font-inter)",
-          "var(--font-noto-sans-kr)",
+          "'Pretendard Variable'",
+          "Pretendard",
           "-apple-system",
+          "BlinkMacSystemFont",
           "sans-serif",
         ],
       },
       maxWidth: {
-        content: "1280px",
+        content: "1200px",
       },
       letterSpacing: {
-        widest2: "0.22em",
+        widest2: "0.18em",
       },
       boxShadow: {
-        card: "0 20px 50px -20px rgba(39, 39, 42, 0.16)",
-        soft: "0 4px 28px -10px rgba(39, 39, 42, 0.12)",
-        lift: "0 14px 34px -12px rgba(139, 90, 102, 0.38)",
-      },
-      animation: {
-        "fade-up": "fadeUp 0.7s ease forwards",
-      },
-      keyframes: {
-        fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(16px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
+        card: "none",
+        soft: "0 1px 0 0 #e4dfd8",
+        lift: "none",
       },
     },
   },

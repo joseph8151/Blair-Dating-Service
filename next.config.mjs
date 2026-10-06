@@ -7,14 +7,8 @@ const nextConfig = {
   output: "export",
   images: {
     // No server available to run Next's image optimizer against static
-    // export, so images are served as-is from their remote source.
+    // export, so images are served as-is from /public.
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-    ],
   },
 };
 

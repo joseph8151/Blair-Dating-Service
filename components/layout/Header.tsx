@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { navItems } from "@/data/nav";
@@ -11,15 +10,8 @@ import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 export function Header() {
-  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  // The homepage hero is a full-bleed photo on mobile, so the header needs a
-  // light (white) wordmark/icon until the user scrolls past it or opens the
-  // menu. Every other page — and desktop, where the hero image never sits
-  // under the header — keeps the standard dark text.
-  const lightHeader = pathname === "/" && !scrolled && !open;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -38,72 +30,61 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled || open
-          ? "border-b border-line bg-off-white/95 shadow-soft backdrop-blur-sm"
-          : "border-b border-transparent bg-transparent"
+        "fixed inset-x-0 top-0 z-50 bg-paper/95 backdrop-blur-sm transition-colors duration-300",
+        scrolled || open ? "border-b border-line" : "border-b border-transparent"
       )}
     >
-      <div className="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between px-5 sm:h-20 sm:px-8 xl:px-10">
+      <div className="mx-auto flex h-16 w-full max-w-content items-center justify-between px-5 sm:h-[72px] sm:px-8 lg:px-10">
         <Link
           href="/"
-          className={cn(
-            "flex-none font-display text-lg tracking-[0.14em] sm:text-xl lg:text-ink",
-            lightHeader ? "text-cream" : "text-ink"
-          )}
+          className="flex-none font-display text-[1.35rem] tracking-[0.01em] text-ink"
           onClick={() => setOpen(false)}
         >
-          {siteConfig.name}
+          {siteConfig.wordmark}
         </Link>
 
-        <nav className="hidden items-center gap-4 xl:gap-6 lg:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="group relative whitespace-nowrap font-body text-[13px] font-medium text-ink/70 transition-colors hover:text-ink"
+              className="whitespace-nowrap font-body text-[13px] text-ink-light transition-colors hover:text-ink"
             >
               {item.label}
-              <span className="absolute -bottom-1 left-0 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </nav>
 
-        <div className="hidden flex-none items-center gap-2.5 lg:flex">
+        <div className="hidden flex-none items-center gap-6 lg:flex">
+          <Link
+            href="/apply"
+            onClick={() => trackEvent("cta_apply_click", { location: "header" })}
+            className="font-body text-[13px] text-ink-light transition-colors hover:text-ink"
+          >
+            매칭 후보 등록
+          </Link>
           <Button
             href="/consultation"
-            variant="outline"
             size="sm"
             onClick={() => trackEvent("cta_consultation_click", { location: "header" })}
           >
             상담 신청
-          </Button>
-          <Button
-            href="/apply"
-            variant="primary"
-            size="sm"
-            onClick={() => trackEvent("cta_apply_click", { location: "header" })}
-          >
-            소개팅 지원하기
           </Button>
         </div>
 
         <button
           type="button"
           aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
-          className={cn(
-            "flex h-10 w-10 items-center justify-center lg:hidden",
-            lightHeader ? "text-cream" : "text-ink"
-          )}
+          className="flex h-10 w-10 items-center justify-center text-ink lg:hidden"
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {open ? (
-        <div className="h-[calc(100vh-4rem)] overflow-y-auto border-t border-line bg-off-white px-5 pb-28 pt-6 lg:hidden">
-          <nav className="flex flex-col gap-1">
+        <div className="h-[calc(100vh-4rem)] overflow-y-auto border-t border-line bg-paper px-5 pb-28 pt-4 lg:hidden">
+          <nav className="flex flex-col">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -115,22 +96,9 @@ export function Header() {
               </Link>
             ))}
           </nav>
-          <div className="mt-8 flex flex-col gap-3">
-            <Button
-              href="/apply"
-              variant="primary"
-              size="lg"
-              className="w-full"
-              onClick={() => {
-                trackEvent("cta_apply_click", { location: "mobile_menu" });
-                setOpen(false);
-              }}
-            >
-              소개팅 지원자로 등록하기
-            </Button>
+          <div className="mt-8 flex flex-col items-start gap-5">
             <Button
               href="/consultation"
-              variant="outline"
               size="lg"
               className="w-full"
               onClick={() => {
@@ -138,8 +106,18 @@ export function Header() {
                 setOpen(false);
               }}
             >
-              상담 신청하기
+              상담 신청
             </Button>
+            <Link
+              href="/apply"
+              onClick={() => {
+                trackEvent("cta_apply_click", { location: "mobile_menu" });
+                setOpen(false);
+              }}
+              className="font-body text-sm text-ink-light underline decoration-line underline-offset-[6px]"
+            >
+              매칭 후보로 등록
+            </Link>
           </div>
         </div>
       ) : null}

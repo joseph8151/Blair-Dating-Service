@@ -4,24 +4,16 @@ export type NavItem = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "About", href: "/#about" },
-  { label: "Global Dating", href: "/#global-dating" },
-  { label: "Premium Dating", href: "/#premium-dating" },
-  { label: "Faith Dating", href: "/#faith-dating" },
-  { label: "Build Your Type", href: "/#build-your-type" },
-  { label: "Success Stories", href: "/#success-stories" },
-  { label: "Apply", href: "/apply" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "가격", href: "/#pricing" },
+  { label: "기준", href: "/#criteria" },
+  { label: "진행 방식", href: "/#process" },
+  { label: "자주 묻는 질문", href: "/#faq" },
 ];
 
 export const footerNavItems: NavItem[] = [
-  { label: "About", href: "/#about" },
-  { label: "Global Dating", href: "/#global-dating" },
-  { label: "Premium Dating", href: "/#premium-dating" },
-  { label: "Faith Dating", href: "/#faith-dating" },
-  { label: "Apply", href: "/apply" },
-  { label: "Consultation", href: "/consultation" },
-  { label: "FAQ", href: "/#faq" },
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
+  { label: "상담 신청", href: "/consultation" },
+  { label: "매칭 후보 등록", href: "/apply" },
+  { label: "자주 묻는 질문", href: "/#faq" },
+  { label: "개인정보처리방침", href: "/privacy" },
+  { label: "이용약관", href: "/terms" },
 ];

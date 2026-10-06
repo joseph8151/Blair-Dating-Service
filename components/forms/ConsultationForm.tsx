@@ -55,9 +55,10 @@ const initialState: FormState = {
 };
 
 const interestOptions = [
-  { value: "global", label: "Global Dating" },
-  { value: "premium", label: "Premium Dating" },
-  { value: "faith", label: "Faith Dating" },
+  { value: "premium", label: "외모와 분위기" },
+  { value: "faith", label: "신앙과 결혼관" },
+  { value: "global", label: "국가와 문화" },
+  { value: "lifestyle", label: "라이프스타일" },
 ];
 
 const goalOptions = [
@@ -302,6 +303,7 @@ export function ConsultationForm() {
             <TextField
               label="선호 국적"
               name="preferredNationality"
+              placeholder="예) 일본, 중국, 유럽, 북미"
               value={form.preferredNationality}
               onChange={(e) => update("preferredNationality", e.target.value)}
             />

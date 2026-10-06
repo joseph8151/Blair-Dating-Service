@@ -5,21 +5,20 @@ type Variant = "primary" | "outline" | "dark" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-body font-medium tracking-wide transition-all duration-300 ease-out rounded-full disabled:opacity-50 disabled:pointer-events-none disabled:translate-y-0 disabled:shadow-none";
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[3px] font-body font-medium transition-colors duration-200 ease-out disabled:pointer-events-none disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
-  primary:
-    "bg-blush-soft text-cream hover:bg-rose hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0",
+  primary: "bg-accent text-paper hover:bg-accent-deep",
   outline:
-    "bg-transparent text-ink border border-ink/20 hover:border-ink hover:bg-ink hover:text-cream",
-  dark: "bg-ink text-cream hover:bg-rose hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0",
-  ghost: "bg-cream text-ink border border-transparent hover:border-line",
+    "border border-accent/30 bg-transparent text-accent hover:border-accent",
+  dark: "bg-accent text-paper hover:bg-accent-deep",
+  ghost: "border border-line bg-transparent text-ink hover:border-ink/40",
 };
 
 const sizes: Record<Size, string> = {
-  sm: "px-5 py-2.5 text-xs",
-  md: "px-7 py-3.5 text-sm",
-  lg: "px-9 py-4 text-sm sm:text-base",
+  sm: "px-4 py-2 text-[13px]",
+  md: "px-6 py-3 text-sm",
+  lg: "px-8 py-4 text-[15px]",
 };
 
 type CommonProps = {

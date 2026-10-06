@@ -4,29 +4,26 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+  scroll-padding-top: 80px;
 }
 
 body {
-  background-color: #fcf9f5;
-  color: #27272a;
+  background-color: #f6f3ee;
+  color: #1c1b19;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.font-display {
-  font-feature-settings: "liga" 1, "kern" 1;
+  word-break: keep-all;
 }
 
 ::selection {
-  background-color: #a96f7c;
-  color: #ffffff;
+  background-color: #3f3330;
+  color: #f6f3ee;
 }
 
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(16px);
   transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -36,47 +33,23 @@ body {
   transform: translateY(0);
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* A restrained, hand-set divider used under eyebrow labels — the one
-   place champagne beige appears with any regularity. */
+/* Short hairline under eyebrow labels on the form pages. */
 .gold-rule {
   display: block;
-  width: 34px;
+  width: 28px;
   height: 1px;
-  background: linear-gradient(90deg, #cbb99a, transparent);
+  background: #e4dfd8;
 }
 
-/* Faint radial warmth for hero / dark section backgrounds — texture, not decoration. */
+/* Kept as a no-op hook for the form pages; the palette is flat on purpose. */
 .ambient-glow {
-  background-image: radial-gradient(
-      circle at 18% 20%,
-      rgba(217, 166, 174, 0.16),
-      transparent 45%
-    ),
-    radial-gradient(
-      circle at 82% 78%,
-      rgba(203, 185, 154, 0.12),
-      transparent 50%
-    );
-}
-
-.ambient-glow-dark {
-  background-image: radial-gradient(
-      circle at 20% 15%,
-      rgba(217, 166, 174, 0.14),
-      transparent 45%
-    ),
-    radial-gradient(
-      circle at 85% 85%,
-      rgba(203, 185, 154, 0.1),
-      transparent 50%
-    );
+  background-image: none;
 }

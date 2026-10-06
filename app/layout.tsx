@@ -1,43 +1,30 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Noto_Serif_KR, Inter, Noto_Sans_KR } from "next/font/google";
+import { Instrument_Serif, Noto_Serif_KR } from "next/font/google";
+import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyMobileCta } from "@/components/layout/StickyMobileCta";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
 
-// Headline pairing: Playfair Display carries Latin headlines; Noto Serif KR
-// picks up automatically wherever a headline has Korean characters, since
-// Playfair has no Hangul glyphs and the browser falls through the stack.
-const playfair = Playfair_Display({
+// Headlines: Instrument Serif for Latin glyphs and numerals. It has no Hangul,
+// so Korean headline text falls through to Noto Serif KR.
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-playfair",
+  weight: ["400"],
+  variable: "--font-instrument-serif",
   display: "swap",
 });
 
 const notoSerifKR = Noto_Serif_KR({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["400", "500"],
   variable: "--font-noto-serif-kr",
   display: "swap",
 });
 
-// Body pairing, same idea: Inter for Latin, Noto Sans KR for Korean — both
-// self-hosted by next/font so they're preloaded and render crisply with no
-// external CDN round trip (unlike the previous Pretendard-via-jsdelivr setup).
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const notoSansKR = Noto_Sans_KR({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-noto-sans-kr",
-  display: "swap",
-});
+// Body text is Pretendard, self-hosted from the npm package as a dynamic
+// subset (unicode-range split), so only the glyphs a page uses are fetched.
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -49,10 +36,8 @@ export const metadata: Metadata = {
   keywords: [
     "소개팅",
     "매칭 서비스",
-    "외국인 소개팅",
-    "프리미엄 소개팅",
+    "결혼 소개",
     "종교 소개팅",
-    "글로벌 데이팅",
     "블레어데이팅",
   ],
   openGraph: {
@@ -78,7 +63,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${playfair.variable} ${notoSerifKR.variable} ${inter.variable} ${notoSansKR.variable}`}
+      className={`${instrumentSerif.variable} ${notoSerifKR.variable}`}
     >
       {/*
         Analytics placeholder:
@@ -86,7 +71,7 @@ export default function RootLayout({
         (e.g. via next/script). Once added, lib/analytics.ts will pick up
         window.gtag / window.fbq automatically — no other file needs to change.
       */}
-      <body className="font-body antialiased">
+      <body className="bg-paper font-body text-ink antialiased">
         <Header />
         <main>{children}</main>
         <Footer />
