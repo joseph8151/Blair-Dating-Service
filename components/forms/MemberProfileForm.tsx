@@ -28,6 +28,9 @@ type FormState = {
   maritalStatus: string;
   children: string;
   income: string;
+  homeOwnership: string;
+  hasCar: string;
+  carDetail: string;
   hasAssets: string;
   assetDetail: string;
   criminalRecord: string;
@@ -62,6 +65,9 @@ const initialState: FormState = {
   maritalStatus: "",
   children: "",
   income: "",
+  homeOwnership: "",
+  hasCar: "",
+  carDetail: "",
   hasAssets: "",
   assetDetail: "",
   criminalRecord: "",
@@ -115,11 +121,18 @@ const yesNoOptions = [
   { value: "yes", label: "있음" },
 ];
 
+const homeOptions = [
+  { value: "none", label: "없음" },
+  { value: "apartment", label: "아파트" },
+  { value: "villa", label: "빌라" },
+  { value: "officetel", label: "오피스텔" },
+  { value: "other", label: "기타 (단독주택 등)" },
+];
+
 const assetTypeOptions = [
-  { value: "real_estate", label: "부동산" },
+  { value: "real_estate", label: "그 외 부동산" },
   { value: "financial", label: "예금·주식 등 금융 자산" },
   { value: "business", label: "사업체" },
-  { value: "vehicle", label: "차량" },
   { value: "other", label: "기타" },
 ];
 
@@ -195,7 +208,9 @@ export function MemberProfileForm() {
     if (!isRequired(form.height)) next.height = "키를 입력해주세요.";
     if (!isRequired(form.maritalStatus)) next.maritalStatus = "혼인 여부를 선택해주세요.";
     if (!isRequired(form.children)) next.children = "자녀 유무를 선택해주세요.";
-    if (!isRequired(form.hasAssets)) next.hasAssets = "자산 유무를 선택해주세요.";
+    if (!isRequired(form.homeOwnership)) next.homeOwnership = "자가 주택 유무를 선택해주세요.";
+    if (!isRequired(form.hasCar)) next.hasCar = "자동차 유무를 선택해주세요.";
+    if (!isRequired(form.hasAssets)) next.hasAssets = "그 외 자산 유무를 선택해주세요.";
     if (form.hasAssets === "yes" && assetTypes.length === 0)
       next.assetTypes = "어떤 자산인지 하나 이상 선택해주세요.";
     if (!isRequired(form.criminalRecord)) next.criminalRecord = "범죄 경력 유무를 선택해주세요.";
@@ -346,7 +361,34 @@ export function MemberProfileForm() {
           options={incomeOptions}
         />
         <RadioGroup
-          legend="자산 유무"
+          legend="자가 주택"
+          name="homeOwnership"
+          required
+          value={form.homeOwnership}
+          onChange={(v) => update("homeOwnership", v)}
+          options={homeOptions}
+          error={errors.homeOwnership}
+        />
+        <RadioGroup
+          legend="자동차"
+          name="hasCar"
+          required
+          value={form.hasCar}
+          onChange={(v) => update("hasCar", v)}
+          options={yesNoOptions}
+          error={errors.hasCar}
+        />
+        {form.hasCar === "yes" ? (
+          <TextField
+            label="차종"
+            name="carDetail"
+            placeholder="선택 입력"
+            value={form.carDetail}
+            onChange={(e) => update("carDetail", e.target.value)}
+          />
+        ) : null}
+        <RadioGroup
+          legend="그 외 자산"
           name="hasAssets"
           required
           value={form.hasAssets}
