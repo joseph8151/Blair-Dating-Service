@@ -1,62 +1,71 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { BrandImage } from "@/components/ui/BrandImage";
 import { Container } from "@/components/ui/Container";
 import { brandPhotos } from "@/data/brandPhotos";
+import { pricePlans } from "@/data/pricing";
 import { trackEvent } from "@/lib/analytics";
+
+const promises = [
+  "등록비는 없고, 소개받는 쪽만 비용을 냅니다.",
+  "거절된 소개는 횟수에서 빼지 않습니다.",
+  "프로필은 공개 목록에 올리지 않습니다.",
+];
 
 export function Hero() {
   return (
-    <section className="pb-20 pt-24 sm:pt-28 lg:pb-28 lg:pt-32">
+    <section className="pb-16 pt-24 sm:pt-28 lg:pb-24 lg:pt-32">
       <Container>
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
-            <p className="font-body text-[11px] font-medium uppercase tracking-widest2 text-ink-light">
-              Private introductions
-            </p>
-            <h1 className="mt-6 font-display text-[2.4rem] leading-[1.3] tracking-[-0.015em] text-ink sm:text-5xl lg:text-[3.1rem]">
-              <span className="block whitespace-nowrap">당신이 찾는 사람을,</span>
-              <span className="block">한 명씩.</span>
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-6">
+            <h1 className="font-display text-[2.3rem] font-medium leading-[1.3] tracking-[-0.03em] text-ink sm:text-5xl lg:text-[3.2rem]">
+              수백 명 대신, 한 명.
             </h1>
-            <p className="mt-6 max-w-md font-body text-base leading-[1.9] text-ink-light sm:text-[17px]">
-              프로필을 넘기지 않습니다. 기준을 듣고, 맞는 사람만 소개합니다.
+            <p className="mt-5 max-w-md font-body text-base leading-[1.8] text-ink-light sm:text-[17px]">
+              넘기지 않습니다. 기준을 듣고, 양쪽이 수락한 사람만 소개합니다.
             </p>
 
-            <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
-              <Button
-                href="/consultation"
-                size="lg"
-                onClick={() => trackEvent("cta_consultation_click", { location: "hero" })}
-              >
-                상담 신청
-              </Button>
-              <Link
-                href="/apply"
-                onClick={() => trackEvent("cta_apply_click", { location: "hero" })}
-                className="group inline-flex items-center gap-1.5 font-body text-sm text-ink-light underline decoration-line underline-offset-[6px] transition-colors hover:text-ink hover:decoration-ink/40"
-              >
-                매칭 후보로 등록
-                <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </div>
+            <ul className="mt-7 flex flex-col gap-2 border-l border-line pl-4 font-body text-[14px] leading-[1.7] text-ink">
+              {promises.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+
+            <Link
+              href="/#pricing"
+              className="mt-8 flex flex-wrap items-baseline gap-x-5 gap-y-1 font-body text-[13px] text-ink-light"
+            >
+              {pricePlans.map((plan) => (
+                <span key={plan.name}>
+                  {plan.name} <span className="font-medium text-ink">{plan.price}</span>
+                </span>
+              ))}
+            </Link>
+
+            <Button
+              href="/consultation"
+              size="lg"
+              className="mt-5"
+              onClick={() => trackEvent("cta_consultation_click", { location: "hero" })}
+            >
+              전화 상담 신청
+            </Button>
           </div>
 
-          {/* Woman first, then man — stacked on mobile, side by side from sm up. */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:col-span-7">
+          <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:col-span-6">
             <BrandImage
               photo={brandPhotos.womanWindow}
               priority
-              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
-              className="aspect-[4/5] sm:aspect-[3/4]"
+              sizes="(min-width: 1024px) 28vw, 50vw"
+              className="aspect-[3/4]"
             />
             <BrandImage
               photo={brandPhotos.manWindow}
               priority
-              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
-              className="aspect-[4/5] sm:aspect-[3/4] sm:mt-12"
+              sizes="(min-width: 1024px) 28vw, 50vw"
+              className="aspect-[3/4]"
             />
           </div>
         </div>

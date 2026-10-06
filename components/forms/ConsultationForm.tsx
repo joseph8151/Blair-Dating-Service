@@ -23,6 +23,7 @@ type FormState = {
   gender: string;
   age: string;
   phone: string;
+  contactMethod: string;
   kakaoId: string;
   region: string;
   preferredGender: string;
@@ -41,6 +42,7 @@ const initialState: FormState = {
   gender: "",
   age: "",
   phone: "",
+  contactMethod: "phone",
   kakaoId: "",
   region: "",
   preferredGender: "",
@@ -58,7 +60,13 @@ const interestOptions = [
   { value: "premium", label: "외모와 분위기" },
   { value: "faith", label: "신앙과 결혼관" },
   { value: "global", label: "국가와 문화" },
-  { value: "lifestyle", label: "라이프스타일" },
+  { value: "lifestyle", label: "생활 방식" },
+];
+
+// Phone is the default; email consultation is intentionally not offered.
+const contactMethodOptions = [
+  { value: "phone", label: "전화 상담" },
+  { value: "sms_then_call", label: "문자 후 전화" },
 ];
 
 const goalOptions = [
@@ -71,11 +79,11 @@ const goalOptions = [
 type Errors = Partial<Record<keyof FormState | "interests" | "consent", string>>;
 
 const steps = [
-  { key: "about", label: "About You" },
-  { key: "type", label: "Your Type" },
-  { key: "culture", label: "Culture & Faith" },
-  { key: "lifestyle", label: "Lifestyle" },
-  { key: "contact", label: "Contact" },
+  { key: "about", label: "기본 정보" },
+  { key: "type", label: "원하는 상대" },
+  { key: "culture", label: "신앙과 문화" },
+  { key: "lifestyle", label: "만남의 목적" },
+  { key: "contact", label: "확인" },
 ] as const;
 
 export function ConsultationForm() {
@@ -126,7 +134,8 @@ export function ConsultationForm() {
       if (!isRequired(form.name)) next.name = "이름을 입력해주세요.";
       if (!isRequired(form.gender)) next.gender = "성별을 선택해주세요.";
       if (!isValidAge(form.age)) next.age = "만 19세 이상 나이를 입력해주세요.";
-      if (!isValidPhone(form.phone)) next.phone = "연락처를 정확히 입력해주세요.";
+      if (!isValidPhone(form.phone)) next.phone = "휴대폰 번호를 정확히 입력해주세요.";
+      if (!isRequired(form.contactMethod)) next.contactMethod = "상담 방법을 선택해주세요.";
       if (!isRequired(form.region)) next.region = "거주지역을 입력해주세요.";
     }
     if (index === 2) {
@@ -182,17 +191,26 @@ export function ConsultationForm() {
   if (submitted) {
     return (
       <FormSuccess
-        title="상담 신청이 접수되었습니다."
-        description="담당 매니저가 비공개로 내용을 확인한 뒤, 순차적으로 연락드리겠습니다. 조금만 기다려주세요."
+        title="접수되었습니다."
+        description={
+          <>
+            매니저가 이 번호로 연락드립니다.
+            <br />
+            <span className="font-medium text-ink">{form.phone}</span>
+          </>
+        }
       />
     );
   }
 
   return (
     <div ref={topRef} className="flex flex-col gap-8 scroll-mt-28">
+      <p className="border-l-2 border-accent pl-4 font-body text-sm leading-[1.7] text-ink">
+        전화로 말씀하시는 편이 정확합니다. 가능하면 통화 상담을 권합니다.
+      </p>
       <div>
         <div className="flex items-center justify-between font-body text-xs text-ink/45">
-          <span className="font-semibold uppercase tracking-widest2 text-blush-soft">
+          <span className="font-medium text-accent">
             {steps[step].label}
           </span>
           <span>
@@ -254,14 +272,24 @@ export function ConsultationForm() {
               error={errors.age}
             />
             <TextField
-              label="연락처"
+              label="휴대폰 번호"
               name="phone"
               type="tel"
               required
+              hint="이 번호로 전화드립니다"
               placeholder="010-0000-0000"
               value={form.phone}
               onChange={(e) => update("phone", e.target.value)}
               error={errors.phone}
+            />
+            <RadioGroup
+              legend="상담 방법"
+              name="contactMethod"
+              required
+              value={form.contactMethod}
+              onChange={(v) => update("contactMethod", v)}
+              options={contactMethodOptions}
+              error={errors.contactMethod}
             />
             <TextField
               label="카카오톡 ID"
@@ -380,14 +408,18 @@ export function ConsultationForm() {
 
         {step === 4 ? (
           <div className="flex flex-col gap-6">
-            <div className="rounded-2xl border border-line bg-off-white p-6">
-              <p className="font-body text-[11px] font-semibold uppercase tracking-widest2 text-ink-light">
+            <div className="rounded-[3px] border border-line bg-off-white p-6">
+              <p className="font-body text-xs font-medium text-ink-light">
                 신청 내용 확인
               </p>
               <dl className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {[
                   ["이름", form.name],
-                  ["연락처", form.phone],
+                  ["휴대폰 번호", form.phone],
+                  [
+                    "상담 방법",
+                    contactMethodOptions.find((o) => o.value === form.contactMethod)?.label ?? "-",
+                  ],
                   ["거주지역", form.region],
                   [
                     "관심 서비스",
@@ -417,6 +449,9 @@ export function ConsultationForm() {
               error={errors.consent}
               label="개인정보 수집 및 이용에 동의합니다. 상담 내용은 비공개로 관리되며, 매칭 상담 목적 외에는 사용되지 않습니다."
             />
+            <p className="font-body text-sm text-ink">
+              남겨 주시면 매니저가 전화로 기준을 정리합니다.
+            </p>
             {submitError ? (
               <p className="font-body text-sm text-blush-soft">{submitError}</p>
             ) : null}
@@ -437,7 +472,7 @@ export function ConsultationForm() {
             </Button>
           ) : (
             <Button type="submit" size="lg" disabled={submitting}>
-              {submitting ? "신청하는 중..." : "비공개 상담 예약하기"}
+              {submitting ? "신청하는 중..." : "전화 상담 신청"}
             </Button>
           )}
         </div>

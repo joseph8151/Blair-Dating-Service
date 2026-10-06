@@ -44,7 +44,9 @@ export default function PrivacyPage() {
           </section>
           <section>
             <h2 className="font-display text-xl text-ink">4. 문의</h2>
-            <p className="mt-2">개인정보 관련 문의: {businessInfo.email}</p>
+            <p className="mt-2">
+              개인정보 관련 문의: {businessInfo.companyName}, {businessInfo.address}
+            </p>
           </section>
         </div>
       </Container>

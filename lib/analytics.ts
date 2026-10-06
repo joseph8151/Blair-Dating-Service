@@ -9,8 +9,7 @@ type EventName =
   | "consultation_form_submit"
   | "consultation_step_complete"
   | "apply_form_submit"
-  | "faq_toggle"
-  | "program_cta_click";
+  | "faq_toggle";
 
 type EventPayload = Record<string, string | number | boolean | undefined>;
 

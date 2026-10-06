@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Noto_Serif_KR } from "next/font/google";
+import { Noto_Serif_KR } from "next/font/google";
 import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -7,18 +7,10 @@ import { StickyMobileCta } from "@/components/layout/StickyMobileCta";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
 
-// Headlines: Instrument Serif for Latin glyphs and numerals. It has no Hangul,
-// so Korean headline text falls through to Noto Serif KR.
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-instrument-serif",
-  display: "swap",
-});
-
+// Headlines: Korean myeongjo.
 const notoSerifKR = Noto_Serif_KR({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600"],
   variable: "--font-noto-serif-kr",
   display: "swap",
 });
@@ -63,7 +55,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${instrumentSerif.variable} ${notoSerifKR.variable}`}
+      className={notoSerifKR.variable}
     >
       {/*
         Analytics placeholder:

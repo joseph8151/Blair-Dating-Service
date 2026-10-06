@@ -37,7 +37,7 @@ export function Header() {
       <div className="mx-auto flex h-16 w-full max-w-content items-center justify-between px-5 sm:h-[72px] sm:px-8 lg:px-10">
         <Link
           href="/"
-          className="flex-none font-display text-[1.35rem] tracking-[0.01em] text-ink"
+          className="flex-none font-display text-lg font-medium tracking-[-0.01em] text-ink"
           onClick={() => setOpen(false)}
         >
           {siteConfig.wordmark}
@@ -55,20 +55,13 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden flex-none items-center gap-6 lg:flex">
-          <Link
-            href="/apply"
-            onClick={() => trackEvent("cta_apply_click", { location: "header" })}
-            className="font-body text-[13px] text-ink-light transition-colors hover:text-ink"
-          >
-            매칭 후보 등록
-          </Link>
+        <div className="hidden flex-none items-center lg:flex">
           <Button
             href="/consultation"
             size="sm"
             onClick={() => trackEvent("cta_consultation_click", { location: "header" })}
           >
-            상담 신청
+            전화 상담 신청
           </Button>
         </div>
 
@@ -96,7 +89,7 @@ export function Header() {
               </Link>
             ))}
           </nav>
-          <div className="mt-8 flex flex-col items-start gap-5">
+          <div className="mt-8">
             <Button
               href="/consultation"
               size="lg"
@@ -106,18 +99,8 @@ export function Header() {
                 setOpen(false);
               }}
             >
-              상담 신청
+              전화 상담 신청
             </Button>
-            <Link
-              href="/apply"
-              onClick={() => {
-                trackEvent("cta_apply_click", { location: "mobile_menu" });
-                setOpen(false);
-              }}
-              className="font-body text-sm text-ink-light underline decoration-line underline-offset-[6px]"
-            >
-              매칭 후보로 등록
-            </Link>
           </div>
         </div>
       ) : null}

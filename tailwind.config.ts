@@ -45,10 +45,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        // Instrument Serif has no Hangul, so Korean headline glyphs fall
-        // through to Noto Serif KR; Latin glyphs and numerals stay in Instrument.
+        // Headlines are Korean myeongjo (Noto Serif KR).
         display: [
-          "var(--font-instrument-serif)",
           "var(--font-noto-serif-kr)",
           "Georgia",
           "serif",

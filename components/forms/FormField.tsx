@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 type BaseProps = {
   label: string;
   name: string;
+  hint?: string;
   error?: string;
   required?: boolean;
   className?: string;
@@ -11,6 +12,7 @@ type BaseProps = {
 export function FieldWrapper({
   label,
   name,
+  hint,
   error,
   required,
   className,
@@ -23,21 +25,22 @@ export function FieldWrapper({
         {required ? <span className="ml-0.5 text-blush-soft">*</span> : null}
       </label>
       {children}
+      {hint ? <p className="font-body text-xs text-ink-light">{hint}</p> : null}
       {error ? <p className="font-body text-xs text-blush-soft">{error}</p> : null}
     </div>
   );
 }
 
 const inputClasses =
-  "w-full rounded-2xl border border-line bg-cream px-4 py-3.5 font-body text-sm text-ink placeholder:text-ink/35 outline-none transition-all duration-200 focus:border-blush-soft focus:ring-4 focus:ring-blush-soft/10";
+  "w-full rounded-[3px] border border-line bg-cream px-4 py-3.5 font-body text-sm text-ink placeholder:text-ink/35 outline-none transition-colors duration-200 focus:border-accent";
 
 export function TextField(
   props: BaseProps &
     React.InputHTMLAttributes<HTMLInputElement>
 ) {
-  const { label, name, error, required, className, ...rest } = props;
+  const { label, name, hint, error, required, className, ...rest } = props;
   return (
-    <FieldWrapper label={label} name={name} error={error} required={required}>
+    <FieldWrapper label={label} name={name} hint={hint} error={error} required={required}>
       <input id={name} name={name} className={cn(inputClasses, error && "border-blush-soft")} {...rest} />
     </FieldWrapper>
   );
@@ -115,9 +118,9 @@ export function CheckboxGroup({
             <label
               key={opt.value}
               className={cn(
-                "cursor-pointer rounded-full border px-4 py-2.5 font-body text-sm transition-all duration-200",
+                "cursor-pointer rounded-[3px] border px-4 py-2.5 font-body text-sm transition-all duration-200",
                 checked
-                  ? "border-blush-soft bg-blush/12 text-blush-soft"
+                  ? "border-accent bg-accent text-paper"
                   : "border-line text-ink/65 hover:border-ink/25"
               )}
             >
@@ -175,9 +178,9 @@ export function RadioGroup({
             <label
               key={opt.value}
               className={cn(
-                "cursor-pointer rounded-full border px-4 py-2.5 font-body text-sm transition-all duration-200",
+                "cursor-pointer rounded-[3px] border px-4 py-2.5 font-body text-sm transition-all duration-200",
                 checked
-                  ? "border-blush-soft bg-blush/12 text-blush-soft"
+                  ? "border-accent bg-accent text-paper"
                   : "border-line text-ink/65 hover:border-ink/25"
               )}
             >
@@ -211,7 +214,7 @@ export function ConsentCheckbox({
   label: string;
 }) {
   return (
-    <div className="flex flex-col gap-2 rounded-2xl border border-line bg-off-white p-5">
+    <div className="flex flex-col gap-2 rounded-[3px] border border-line bg-off-white p-5">
       <label className="flex cursor-pointer items-start gap-3">
         <input
           type="checkbox"

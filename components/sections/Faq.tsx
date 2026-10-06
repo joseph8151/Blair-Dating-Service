@@ -2,19 +2,16 @@
 
 import { Plus } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { faqItems } from "@/data/faq";
 import { trackEvent } from "@/lib/analytics";
 
 export function Faq() {
   return (
-    <section id="faq" className="border-t border-line py-24 sm:py-32">
+    <section id="faq" className="border-t border-line py-20 sm:py-28">
       <Container>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-20">
-          <Reveal className="lg:col-span-4">
-            <SectionHeading eyebrow="FAQ" title="자주 묻는 질문" />
-          </Reveal>
+          <SectionHeading className="lg:col-span-4" title="자주 묻는 질문" />
 
           <div className="border-t border-line lg:col-span-8">
             {faqItems.map((item) => (

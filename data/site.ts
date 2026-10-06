@@ -2,11 +2,11 @@
 
 export const siteConfig = {
   name: "블레어데이팅",
-  wordmark: "Blair Dating",
+  wordmark: "블레어데이팅",
   shortName: "BLAIR",
-  tagline: "당신이 찾는 사람을, 한 명씩.",
+  tagline: "수백 명 대신, 한 명.",
   description:
-    "프로필을 넘기지 않습니다. 기준을 듣고, 맞는 사람만 소개합니다. 블레어데이팅은 상담을 바탕으로 한 명씩 소개하는 1:1 매칭 서비스입니다.",
+    "넘기지 않습니다. 기준을 듣고, 양쪽이 수락한 사람만 소개합니다. 등록비 없음, 1회 12만 원부터. 상담은 전화로 진행합니다.",
   url: "https://www.blairdating.com",
   locale: "ko_KR",
   instagramUrl: "https://instagram.com/blairdating",
@@ -14,9 +14,8 @@ export const siteConfig = {
 
 export const businessInfo = {
   companyName: "블레어데이팅",
-  // TODO: 대표자명과 사업자등록번호를 실제 값으로 교체하세요.
-  representative: "○○○",
-  registrationNumber: "000-00-00000",
-  email: "hello@blairdating.com",
+  // 비워 두면 하단에 항목 이름만 표시됩니다. 확정되면 값을 넣으세요.
+  representative: "",
+  registrationNumber: "",
   address: "서울시 서초구 반포대로18길 62",
 };

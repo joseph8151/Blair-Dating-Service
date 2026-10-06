@@ -129,8 +129,8 @@ export function ApplyForm() {
   if (submitted) {
     return (
       <FormSuccess
-        title="등록해주셔서 감사합니다."
-        description="보내주신 프로필은 담당 매니저가 정성껏 검토합니다. 어울리는 매칭이 있을 때, 가장 먼저 연락드리겠습니다."
+        title="등록되었습니다."
+        description="기준이 맞는 사람이 있을 때 매니저가 먼저 연락드립니다. 동의 없이 소개하지 않습니다."
       />
     );
   }

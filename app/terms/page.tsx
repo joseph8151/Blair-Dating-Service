@@ -25,8 +25,8 @@ export default function TermsPage() {
           <section>
             <h2 className="font-display text-xl text-ink">제2조 (서비스의 내용)</h2>
             <p className="mt-2">
-              회사는 상담을 기반으로 회원 간 소개를 주선하는 큐레이션형
-              매칭 서비스를 제공합니다. 소개 여부 및 최종 만남은 양측
+              회사는 상담을 기반으로 회원 간 소개를 주선하는 매칭
+              서비스를 제공합니다. 소개 여부 및 최종 만남은 양측
               회원의 자발적 의사에 따릅니다.
             </p>
           </section>
