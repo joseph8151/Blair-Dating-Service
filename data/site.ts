@@ -15,7 +15,7 @@ export const siteConfig = {
 export const businessInfo = {
   companyName: "블레어데이팅",
   // 비워 두면 하단에 항목 이름만 표시됩니다. 확정되면 값을 넣으세요.
-  representative: "",
+  representative: "김형기",
   registrationNumber: "",
   address: "서울시 서초구 반포대로18길 62",
 };
