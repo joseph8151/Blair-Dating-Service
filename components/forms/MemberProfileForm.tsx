@@ -6,9 +6,9 @@ import {
   TextareaField,
   SelectField,
   RadioGroup,
+  CheckboxGroup,
   ConsentCheckbox,
 } from "@/components/forms/FormField";
-import { PhotoUploadField } from "@/components/forms/PhotoUploadField";
 import { FormSuccess } from "@/components/forms/FormSuccess";
 import { Button } from "@/components/ui/Button";
 import { isRequired, isValidAge, isValidPhone } from "@/lib/validation";
@@ -17,6 +17,7 @@ import { trackEvent } from "@/lib/analytics";
 
 // Detailed profile for members who already signed up after the phone
 // consultation. Reached only through a link the manager sends.
+// Photos are not uploaded here; members send them to their manager directly.
 type FormState = {
   name: string;
   phone: string;
@@ -24,6 +25,13 @@ type FormState = {
   age: string;
   region: string;
   height: string;
+  maritalStatus: string;
+  children: string;
+  income: string;
+  hasAssets: string;
+  assetDetail: string;
+  criminalRecord: string;
+  criminalDetail: string;
   job: string;
   education: string;
   weekdays: string;
@@ -33,7 +41,7 @@ type FormState = {
   religion: string;
   religiousLife: string;
   marriagePlan: string;
-  children: string;
+  childrenPlan: string;
   abroad: string;
   languages: string;
   preferredAgeRange: string;
@@ -51,6 +59,13 @@ const initialState: FormState = {
   age: "",
   region: "",
   height: "",
+  maritalStatus: "",
+  children: "",
+  income: "",
+  hasAssets: "",
+  assetDetail: "",
+  criminalRecord: "",
+  criminalDetail: "",
   job: "",
   education: "",
   weekdays: "",
@@ -60,7 +75,7 @@ const initialState: FormState = {
   religion: "",
   religiousLife: "",
   marriagePlan: "",
-  children: "",
+  childrenPlan: "",
   abroad: "",
   languages: "",
   preferredAgeRange: "",
@@ -71,7 +86,42 @@ const initialState: FormState = {
   photoTiming: "on_proposal",
 };
 
-type Errors = Partial<Record<keyof FormState | "mainPhoto" | "consent", string>>;
+type Errors = Partial<
+  Record<keyof FormState | "assetTypes" | "consent" | "sensitiveConsent", string>
+>;
+
+const maritalOptions = [
+  { value: "single", label: "미혼" },
+  { value: "divorced", label: "이혼" },
+  { value: "widowed", label: "사별" },
+];
+
+const childrenOptions = [
+  { value: "none", label: "없음" },
+  { value: "yes", label: "있음" },
+];
+
+const incomeOptions = [
+  { value: "under30", label: "3천만 원 미만" },
+  { value: "30to50", label: "3천만~5천만 원" },
+  { value: "50to80", label: "5천만~8천만 원" },
+  { value: "80to100", label: "8천만~1억 원" },
+  { value: "over100", label: "1억 원 이상" },
+  { value: "private", label: "밝히기 어려움" },
+];
+
+const yesNoOptions = [
+  { value: "no", label: "없음" },
+  { value: "yes", label: "있음" },
+];
+
+const assetTypeOptions = [
+  { value: "real_estate", label: "부동산" },
+  { value: "financial", label: "예금·주식 등 금융 자산" },
+  { value: "business", label: "사업체" },
+  { value: "vehicle", label: "차량" },
+  { value: "other", label: "기타" },
+];
 
 const religionOptions = [
   { value: "christian", label: "기독교" },
@@ -123,9 +173,9 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
 export function MemberProfileForm() {
   const [form, setForm] = useState<FormState>(initialState);
-  const [mainPhoto, setMainPhoto] = useState<File[]>([]);
-  const [additionalPhotos, setAdditionalPhotos] = useState<File[]>([]);
+  const [assetTypes, setAssetTypes] = useState<string[]>([]);
   const [consent, setConsent] = useState(false);
+  const [sensitiveConsent, setSensitiveConsent] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -142,14 +192,22 @@ export function MemberProfileForm() {
     if (!isRequired(form.gender)) next.gender = "성별을 선택해주세요.";
     if (!isValidAge(form.age)) next.age = "만 19세 이상 나이를 입력해주세요.";
     if (!isRequired(form.region)) next.region = "거주지역을 입력해주세요.";
+    if (!isRequired(form.maritalStatus)) next.maritalStatus = "혼인 여부를 선택해주세요.";
+    if (!isRequired(form.children)) next.children = "자녀 유무를 선택해주세요.";
+    if (!isRequired(form.hasAssets)) next.hasAssets = "자산 유무를 선택해주세요.";
+    if (form.hasAssets === "yes" && assetTypes.length === 0)
+      next.assetTypes = "어떤 자산인지 하나 이상 선택해주세요.";
+    if (!isRequired(form.criminalRecord)) next.criminalRecord = "범죄 경력 유무를 선택해주세요.";
+    if (form.criminalRecord === "yes" && !isRequired(form.criminalDetail))
+      next.criminalDetail = "내용을 간단히 적어주세요.";
     if (!isRequired(form.job)) next.job = "직업을 입력해주세요.";
     if (!isRequired(form.weekends)) next.weekends = "주말을 보내는 방식을 적어주세요.";
     if (!isRequired(form.religion)) next.religion = "종교를 선택해주세요.";
     if (!isRequired(form.marriagePlan)) next.marriagePlan = "결혼 계획을 선택해주세요.";
     if (!isRequired(form.mustHave)) next.mustHave = "꼭 필요한 조건을 적어주세요.";
     if (!isRequired(form.bio)) next.bio = "본인 소개를 적어주세요.";
-    if (mainPhoto.length < 1) next.mainPhoto = "대표 사진을 등록해주세요.";
     if (!consent) next.consent = "개인정보 수집 및 이용에 동의해주세요.";
+    if (!sensitiveConsent) next.sensitiveConsent = "민감정보 수집에 동의해주세요.";
     return next;
   }
 
@@ -171,8 +229,7 @@ export function MemberProfileForm() {
     setSubmitError(null);
     const data = new FormData();
     Object.entries(form).forEach(([key, value]) => data.append(key, value));
-    if (mainPhoto[0]) data.append("mainPhoto", mainPhoto[0]);
-    additionalPhotos.forEach((file, i) => data.append(`additionalPhoto${i}`, file));
+    if (form.hasAssets === "yes") assetTypes.forEach((t) => data.append("assetTypes", t));
 
     const result = await submitMemberProfile(data);
     setSubmitting(false);
@@ -255,6 +312,85 @@ export function MemberProfileForm() {
             onChange={(e) => update("height", e.target.value)}
           />
         </div>
+      </Section>
+
+      <Section title="혼인과 신상">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <RadioGroup
+            legend="혼인 여부"
+            name="maritalStatus"
+            required
+            value={form.maritalStatus}
+            onChange={(v) => update("maritalStatus", v)}
+            options={maritalOptions}
+            error={errors.maritalStatus}
+          />
+          <RadioGroup
+            legend="자녀"
+            name="children"
+            required
+            value={form.children}
+            onChange={(v) => update("children", v)}
+            options={childrenOptions}
+            error={errors.children}
+          />
+        </div>
+        <SelectField
+          label="연 소득"
+          name="income"
+          value={form.income}
+          onChange={(e) => update("income", e.target.value)}
+          options={incomeOptions}
+        />
+        <RadioGroup
+          legend="자산 유무"
+          name="hasAssets"
+          required
+          value={form.hasAssets}
+          onChange={(v) => update("hasAssets", v)}
+          options={yesNoOptions}
+          error={errors.hasAssets}
+        />
+        {form.hasAssets === "yes" ? (
+          <>
+            <CheckboxGroup
+              legend="어떤 자산인가요?"
+              name="assetTypes"
+              required
+              values={assetTypes}
+              onChange={setAssetTypes}
+              options={assetTypeOptions}
+              error={errors.assetTypes}
+            />
+            <TextField
+              label="자산 설명"
+              name="assetDetail"
+              placeholder="예) 서울 아파트 1채, 금융 자산 약 2억 원"
+              value={form.assetDetail}
+              onChange={(e) => update("assetDetail", e.target.value)}
+            />
+          </>
+        ) : null}
+        <RadioGroup
+          legend="범죄 경력"
+          name="criminalRecord"
+          required
+          value={form.criminalRecord}
+          onChange={(v) => update("criminalRecord", v)}
+          options={yesNoOptions}
+          error={errors.criminalRecord}
+        />
+        {form.criminalRecord === "yes" ? (
+          <TextareaField
+            label="범죄 경력 내용"
+            name="criminalDetail"
+            required
+            placeholder="시기와 내용을 간단히 적어주세요."
+            value={form.criminalDetail}
+            onChange={(e) => update("criminalDetail", e.target.value)}
+            error={errors.criminalDetail}
+          />
+        ) : null}
       </Section>
 
       <Section title="일과 생활">
@@ -340,10 +476,10 @@ export function MemberProfileForm() {
         />
         <TextField
           label="자녀 계획"
-          name="children"
+          name="childrenPlan"
           placeholder="선택 입력"
-          value={form.children}
-          onChange={(e) => update("children", e.target.value)}
+          value={form.childrenPlan}
+          onChange={(e) => update("childrenPlan", e.target.value)}
         />
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <TextField
@@ -406,23 +542,13 @@ export function MemberProfileForm() {
           onChange={(e) => update("bio", e.target.value)}
           error={errors.bio}
         />
-        <PhotoUploadField
-          label="대표 사진"
-          hint="얼굴이 잘 보이는 최근 사진 1장"
-          maxFiles={1}
-          files={mainPhoto}
-          onChange={setMainPhoto}
-          error={errors.mainPhoto}
-          required
-        />
-        <PhotoUploadField
-          label="추가 사진 (최대 3장)"
-          hint="분위기를 알 수 있는 사진이면 좋습니다."
-          multiple
-          maxFiles={3}
-          files={additionalPhotos}
-          onChange={setAdditionalPhotos}
-        />
+        <div className="rounded-[3px] border border-line bg-off-white p-5">
+          <p className="font-body text-sm font-medium text-ink">사진</p>
+          <p className="mt-2 font-body text-sm leading-[1.8] text-ink-light">
+            사진은 이 페이지에 올리지 않습니다. 얼굴이 잘 보이는 최근 사진 1장과 분위기를 알 수
+            있는 사진 2~3장을 담당 매니저 연락처로 보내 주세요.
+          </p>
+        </div>
         <RadioGroup
           legend="사진을 보여 드릴 시점"
           name="photoTiming"
@@ -438,6 +564,12 @@ export function MemberProfileForm() {
           onChange={setConsent}
           error={errors.consent}
           label="개인정보 수집 및 이용에 동의합니다. 작성한 내용은 소개 목적으로만 사용하며, 동의 없이 상대에게 전달하지 않습니다."
+        />
+        <ConsentCheckbox
+          checked={sensitiveConsent}
+          onChange={setSensitiveConsent}
+          error={errors.sensitiveConsent}
+          label="종교, 범죄 경력 등 민감정보를 소개 목적으로 수집하는 데 별도로 동의합니다."
         />
         {submitError ? (
           <p className="font-body text-sm text-blush-soft">{submitError}</p>
