@@ -7,7 +7,7 @@ export const comparisonRows: { label: string; values: [string, string, string] }
   },
   {
     label: "상담하는 것",
-    values: ["없음", "등급과 조건", "외모, 신앙, 생활. 등급은 없습니다"],
+    values: ["없음", "등급과 조건", "외모, 종교, 생활 방식. 등급은 없습니다"],
   },
   {
     label: "비용",

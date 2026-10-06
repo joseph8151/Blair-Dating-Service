@@ -24,7 +24,7 @@ export function Hero() {
               수백 명 대신, 한 명.
             </h1>
             <p className="mt-5 max-w-md font-body text-base leading-[1.8] text-ink-light sm:text-[17px]">
-              넘기지 않습니다. 기준을 듣고, 양쪽이 수락한 사람만 소개합니다.
+              프로필을 넘기지 않습니다. 기준을 듣고, 양쪽이 수락한 사람만 소개합니다.
             </p>
 
             <ul className="mt-7 flex flex-col gap-2 border-l border-line pl-4 font-body text-[14px] leading-[1.7] text-ink">

@@ -58,7 +58,7 @@ const initialState: FormState = {
 
 const interestOptions = [
   { value: "premium", label: "외모와 분위기" },
-  { value: "faith", label: "신앙과 결혼관" },
+  { value: "faith", label: "종교와 결혼관" },
   { value: "global", label: "국가와 문화" },
   { value: "lifestyle", label: "생활 방식" },
 ];
@@ -81,7 +81,7 @@ type Errors = Partial<Record<keyof FormState | "interests" | "consent", string>>
 const steps = [
   { key: "about", label: "기본 정보" },
   { key: "type", label: "원하는 상대" },
-  { key: "culture", label: "신앙과 문화" },
+  { key: "culture", label: "종교와 문화" },
   { key: "lifestyle", label: "만남의 목적" },
   { key: "contact", label: "확인" },
 ] as const;
