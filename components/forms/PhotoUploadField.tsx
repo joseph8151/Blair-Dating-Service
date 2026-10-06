@@ -97,7 +97,7 @@ export function PhotoUploadField({
         onChange={(e) => handleFiles(e.target.files)}
       />
 
-      {error ? <p className="font-body text-xs text-blush-soft">{error}</p> : null}
+      {error ? <p data-field-error className="font-body text-xs text-blush-soft">{error}</p> : null}
     </div>
   );
 }

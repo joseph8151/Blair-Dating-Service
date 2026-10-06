@@ -7,7 +7,7 @@ import { trackEvent } from "@/lib/analytics";
 export function StickyMobileCta() {
   const pathname = usePathname();
   // The form pages already are the destination; don't cover their fields.
-  if (pathname?.startsWith("/consultation") || pathname?.startsWith("/apply")) return null;
+  if (["/consultation", "/apply", "/profile"].some((p) => pathname?.startsWith(p))) return null;
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/95 px-4 py-3 backdrop-blur-sm lg:hidden [padding-bottom:calc(0.75rem+env(safe-area-inset-bottom))]">

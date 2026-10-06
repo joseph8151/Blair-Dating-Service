@@ -1,4 +1,4 @@
-// Form submission layer — delivers both forms straight to an inbox via
+// Form submission layer — delivers every form straight to an inbox via
 // Formspree (https://formspree.io), since this site is a static export with
 // no backend of its own. Submissions go to yorkboy@gmail.com.
 
@@ -44,4 +44,10 @@ export async function submitConsultationRequest(
   formData: FormData
 ): Promise<SubmitResult> {
   return submitToFormspree(formData, "[BLAIR DATING] 새 상담 신청");
+}
+
+export async function submitMemberProfile(
+  formData: FormData
+): Promise<SubmitResult> {
+  return submitToFormspree(formData, "[BLAIR DATING] 회원 프로필 작성");
 }

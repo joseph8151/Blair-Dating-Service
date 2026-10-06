@@ -26,7 +26,7 @@ export function FieldWrapper({
       </label>
       {children}
       {hint ? <p className="font-body text-xs text-ink-light">{hint}</p> : null}
-      {error ? <p className="font-body text-xs text-blush-soft">{error}</p> : null}
+      {error ? <p data-field-error className="font-body text-xs text-blush-soft">{error}</p> : null}
     </div>
   );
 }
@@ -143,7 +143,7 @@ export function CheckboxGroup({
           );
         })}
       </div>
-      {error ? <p className="font-body text-xs text-blush-soft">{error}</p> : null}
+      {error ? <p data-field-error className="font-body text-xs text-blush-soft">{error}</p> : null}
     </fieldset>
   );
 }
@@ -197,7 +197,7 @@ export function RadioGroup({
           );
         })}
       </div>
-      {error ? <p className="font-body text-xs text-blush-soft">{error}</p> : null}
+      {error ? <p data-field-error className="font-body text-xs text-blush-soft">{error}</p> : null}
     </fieldset>
   );
 }
@@ -224,7 +224,7 @@ export function ConsentCheckbox({
         />
         <span className="font-body text-[13px] leading-relaxed text-ink/65">{label}</span>
       </label>
-      {error ? <p className="font-body text-xs text-blush-soft">{error}</p> : null}
+      {error ? <p data-field-error className="font-body text-xs text-blush-soft">{error}</p> : null}
     </div>
   );
 }
