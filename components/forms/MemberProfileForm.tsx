@@ -192,6 +192,7 @@ export function MemberProfileForm() {
     if (!isRequired(form.gender)) next.gender = "성별을 선택해주세요.";
     if (!isValidAge(form.age)) next.age = "만 19세 이상 나이를 입력해주세요.";
     if (!isRequired(form.region)) next.region = "거주지역을 입력해주세요.";
+    if (!isRequired(form.height)) next.height = "키를 입력해주세요.";
     if (!isRequired(form.maritalStatus)) next.maritalStatus = "혼인 여부를 선택해주세요.";
     if (!isRequired(form.children)) next.children = "자녀 유무를 선택해주세요.";
     if (!isRequired(form.hasAssets)) next.hasAssets = "자산 유무를 선택해주세요.";
@@ -308,8 +309,10 @@ export function MemberProfileForm() {
             label="키 (cm)"
             name="height"
             type="number"
+            required
             value={form.height}
             onChange={(e) => update("height", e.target.value)}
+            error={errors.height}
           />
         </div>
       </Section>
