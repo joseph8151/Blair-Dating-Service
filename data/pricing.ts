@@ -16,8 +16,8 @@ export const pricePlans: PricePlan[] = [
   },
   {
     name: "3회권",
-    price: "45만 원",
-    detail: "회당 15만 원 · 2개월",
+    price: "48만 원",
+    detail: "회당 16만 원 · 2개월",
     suits: "몇 번의 소개를 천천히 받아 보고 싶은 분",
   },
   {
