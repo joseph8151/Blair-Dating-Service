@@ -5,8 +5,12 @@ export const siteConfig = {
   wordmark: "블레어데이팅",
   shortName: "BLAIR",
   tagline: "수백 명 대신, 한 명.",
+  // Search title: what people type into Naver/Google.
+  seoTitle: "블레어데이팅 | 30대·40대 소개팅, 기독교·크리스천 소개팅",
   description:
-    "프로필을 넘기지 않습니다. 기준을 듣고, 두 분 모두 수락하면 소개합니다. 등록비 없음, 1회 17만 원부터. 상담은 전화로 진행합니다.",
+    "30대·40대 1:1 소개팅. 기독교·크리스천 등 종교와 생활 방식까지 전화로 듣고, 두 분 모두 수락하면 한 분씩 소개합니다. 등록비 없음, 1회 17만 원부터.",
+  // Paste the code from Naver Search Advisor (사이트 소유확인 → HTML 태그) here.
+  naverSiteVerification: "",
   url: "https://www.blairdating.com",
   locale: "ko_KR",
   instagramUrl: "https://instagram.com/blairdating",

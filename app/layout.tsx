@@ -21,28 +21,36 @@ const notoSerifKR = Noto_Serif_KR({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | ${siteConfig.tagline}`,
+    default: siteConfig.seoTitle,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
-    "소개팅",
-    "매칭 서비스",
-    "결혼 소개",
+    "30대 소개팅",
+    "40대 소개팅",
+    "기독교 소개팅",
+    "크리스천 소개팅",
+    "크리스찬 소개팅",
+    "교회 소개팅",
     "종교 소개팅",
+    "1:1 소개팅",
+    "소개팅 서비스",
     "블레어데이팅",
   ],
+  ...(siteConfig.naverSiteVerification
+    ? { verification: { other: { "naver-site-verification": siteConfig.naverSiteVerification } } }
+    : {}),
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
     url: siteConfig.url,
-    title: `${siteConfig.name} | ${siteConfig.tagline}`,
+    title: siteConfig.seoTitle,
     description: siteConfig.description,
     siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | ${siteConfig.tagline}`,
+    title: siteConfig.seoTitle,
     description: siteConfig.description,
   },
 };

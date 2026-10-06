@@ -20,6 +20,7 @@ export function Hero() {
       <Container>
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6">
+            <p className="mb-4 font-body text-[13px] text-ink-light">30대·40대 1:1 소개팅</p>
             <h1 className="font-display text-[2.3rem] font-medium leading-[1.3] tracking-[-0.03em] text-ink sm:text-5xl lg:text-[3.2rem]">
               수백 명 대신, 한 명.
             </h1>
