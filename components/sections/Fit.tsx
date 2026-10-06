@@ -10,7 +10,7 @@ export function Fit() {
           <SectionHeading
             className="lg:col-span-5"
             title="이런 분께 잘 맞습니다"
-            description="두세 가지가 해당된다면, 한 번 이야기해 볼 만합니다."
+            description="두세 가지가 해당된다면 편하게 상담해 보세요."
           />
           <div className="lg:col-span-7">
             <ul className="border-t border-line">

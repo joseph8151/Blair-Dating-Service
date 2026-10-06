@@ -130,7 +130,7 @@ export function ApplyForm() {
     return (
       <FormSuccess
         title="등록되었습니다."
-        description="기준이 맞는 사람이 있을 때 매니저가 먼저 연락드립니다. 동의 없이 소개하지 않습니다."
+        description="기준이 맞는 분이 있으면 매니저가 먼저 연락드립니다. 동의 없이 소개하지 않습니다."
       />
     );
   }

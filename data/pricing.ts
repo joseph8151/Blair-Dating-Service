@@ -11,4 +11,4 @@ export const pricePlans: PricePlan[] = [
 ];
 
 export const pricingNote =
-  "1회는 양쪽이 수락하고 일정이 잡힌 만남입니다. 프로필만 보내고 거절되면 차감하지 않습니다.";
+  "1회는 두 분 모두 수락하고 일정이 잡힌 만남입니다. 프로필 전달 후 거절되면 횟수가 차감되지 않습니다.";

@@ -7,7 +7,7 @@ export function Comparison() {
   return (
     <section id="compare" className="border-t border-line py-20 sm:py-28">
       <Container>
-        <SectionHeading title="앱, 결혼정보회사와 다른 점" />
+        <SectionHeading title="소개팅 앱, 결혼정보회사와 다른 점" />
 
         <div className="mt-10 overflow-x-auto">
           <table className="w-full min-w-[560px] border-collapse text-left font-body text-sm">

@@ -8,7 +8,7 @@ export function Process() {
       <Container>
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-8">
-            <SectionHeading title="다섯 단계" />
+            <SectionHeading title="다섯 단계로 진행됩니다" />
             <ol className="mt-10 border-t border-line">
               {steps.map((step) => (
                 <li
@@ -26,7 +26,7 @@ export function Process() {
           </div>
 
           <div className="lg:col-span-4">
-            <SectionHeading title="소개하지 않는 사람" />
+            <SectionHeading title="소개하지 않는 경우" />
             <ul className="mt-10 border-t border-line font-body text-[15px] text-ink">
               {notForList.map((item) => (
                 <li key={item} className="border-b border-line py-4">

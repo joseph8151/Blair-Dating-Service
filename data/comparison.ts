@@ -2,12 +2,12 @@ export const comparisonColumns = ["소개팅 앱", "결혼정보회사", "블레
 
 export const comparisonRows: { label: string; values: [string, string, string] }[] = [
   {
-    label: "고르는 방식",
-    values: ["프로필을 직접 넘깁니다", "등급과 조건을 봅니다", "매니저가 한 명만 제안합니다"],
+    label: "소개 방식",
+    values: ["직접 프로필을 넘겨 봅니다", "등급과 조건을 우선합니다", "매니저가 한 분만 제안합니다"],
   },
   {
-    label: "상담하는 것",
-    values: ["없음", "등급과 조건", "외모, 종교, 생활 방식. 등급은 없습니다"],
+    label: "상담 내용",
+    values: ["없음", "등급과 조건", "외모·종교·생활 방식, 등급 없음"],
   },
   {
     label: "비용",

@@ -6,7 +6,7 @@ import { applyPolicyPoints } from "@/data/config";
 export const metadata: Metadata = {
   title: "매칭 후보 등록",
   description:
-    "등록비 없이 매칭 후보로 등록합니다. 기준이 맞는 사람이 있을 때 매니저가 먼저 묻고, 동의하면 소개합니다.",
+    "등록비 없이 매칭 후보로 등록합니다. 기준이 맞는 분이 있으면 먼저 여쭙고, 동의하시면 소개합니다.",
 };
 
 export default function ApplyPage() {
@@ -17,8 +17,8 @@ export default function ApplyPage() {
           매칭 후보 등록
         </h1>
         <p className="mt-4 font-body text-[15px] leading-[1.85] text-ink-light">
-          기준이 맞는 사람이 있을 때 매니저가 먼저 연락합니다. 프로필은 공개
-          목록에 올리지 않고, 동의 없이 소개하지 않습니다.
+          기준이 맞는 분이 있으면 매니저가 먼저 연락드립니다. 프로필은
+          목록에 노출되지 않으며, 동의 없이 소개하지 않습니다.
         </p>
         <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-1">
           {applyPolicyPoints.map((point) => (

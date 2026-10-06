@@ -11,7 +11,7 @@ export function PoolLink() {
     <section className="border-t border-line py-14">
       <Container className="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
         <p className="font-body text-sm text-ink-light">
-          소개받을 후보로만 등록할 수도 있습니다. 등록비는 없고, 소개 전에 먼저 묻습니다.
+          매칭 후보로만 등록하실 수도 있습니다. 등록비는 없으며, 소개 전에 먼저 여쭙니다.
         </p>
         <Link
           href="/apply"

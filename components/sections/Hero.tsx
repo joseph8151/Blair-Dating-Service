@@ -9,9 +9,9 @@ import { pricePlans } from "@/data/pricing";
 import { trackEvent } from "@/lib/analytics";
 
 const promises = [
-  "등록비는 없고, 소개받는 쪽만 비용을 냅니다.",
-  "거절된 소개는 횟수에서 빼지 않습니다.",
-  "프로필은 공개 목록에 올리지 않습니다.",
+  "등록비는 없고, 소개를 받는 분만 비용을 냅니다.",
+  "거절된 소개는 횟수가 차감되지 않습니다.",
+  "프로필은 목록에 노출되지 않습니다.",
 ];
 
 export function Hero() {
@@ -24,7 +24,7 @@ export function Hero() {
               수백 명 대신, 한 명.
             </h1>
             <p className="mt-5 max-w-md font-body text-base leading-[1.8] text-ink-light sm:text-[17px]">
-              프로필을 넘기지 않습니다. 기준을 듣고, 양쪽이 수락한 사람만 소개합니다.
+              프로필을 넘기지 않습니다. 기준을 듣고, 두 분 모두 수락하면 소개합니다.
             </p>
 
             <ul className="mt-7 flex flex-col gap-2 border-l border-line pl-4 font-body text-[14px] leading-[1.7] text-ink">

@@ -16,8 +16,8 @@ export function Criteria() {
         <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-12 lg:gap-20">
           <SectionHeading
             className="lg:col-span-5"
-            title="네 가지만 묻습니다."
-            description="조건표 대신 통화로 듣습니다."
+            title="네 가지를 여쭙니다."
+            description="조건표 대신 전화로 직접 듣습니다."
           />
           <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:col-span-7">
             <BrandImage
@@ -50,7 +50,7 @@ export function Criteria() {
                 }
                 className="group mt-5 inline-flex items-center gap-1.5 self-start font-body text-[13px] font-medium text-accent"
               >
-                이 기준으로 상담
+                이 기준으로 상담하기
                 <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>

@@ -8,7 +8,7 @@ export type Criterion = {
 export const criteria: Criterion[] = [
   {
     title: "외모와 분위기",
-    description: "사진보다, 실제로 끌리는 쪽을 듣습니다.",
+    description: "사진보다 실제로 끌리는 분위기를 여쭙니다.",
     href: "/consultation?interest=premium",
   },
   {
@@ -18,12 +18,12 @@ export const criteria: Criterion[] = [
   },
   {
     title: "국가와 문화",
-    description: "국적 하나로 묶어 보지 않습니다.",
+    description: "국적만으로 판단하지 않습니다.",
     href: "/consultation?interest=global",
   },
   {
     title: "생활 방식",
-    description: "직업보다, 주말을 보내는 방식이 비슷한지 봅니다.",
+    description: "직업보다 주말을 보내는 방식이 비슷한지 봅니다.",
     href: "/consultation?interest=lifestyle",
   },
 ];

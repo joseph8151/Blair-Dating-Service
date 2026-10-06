@@ -10,7 +10,7 @@ export function Pricing() {
       <Container>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-7">
-            <SectionHeading title="일정이 잡힌 만남만 셉니다." />
+            <SectionHeading title="일정이 잡힌 만남만 차감됩니다." />
 
             <dl className="mt-10 border-t border-ink">
               {pricePlans.map((plan) => (
