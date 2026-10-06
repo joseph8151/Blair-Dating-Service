@@ -11,6 +11,6 @@ export const comparisonRows: { label: string; values: [string, string, string] }
   },
   {
     label: "비용",
-    values: ["구독", "수백만 원", "12만 원부터"],
+    values: ["구독", "수백만 원", "17만 원부터"],
   },
 ];

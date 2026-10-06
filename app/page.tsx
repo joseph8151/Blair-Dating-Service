@@ -16,8 +16,8 @@ export default function Home() {
       <Pricing />
       <Comparison />
       <Fit />
-      <Criteria />
       <IntroExample />
+      <Criteria />
       <Process />
       <CafeBand />
       <Faq />

@@ -1,14 +1,32 @@
+// All plans are prepaid. A meeting is deducted only when both people accept
+// and the meeting date is confirmed; declining at the profile stage is free.
 export type PricePlan = {
   name: string;
   price: string;
   detail?: string;
+  // One line for the plan guide under the price table.
+  suits: string;
 };
 
 export const pricePlans: PricePlan[] = [
-  { name: "1회", price: "12만 원" },
-  { name: "5회권", price: "50만 원", detail: "회당 10만 원 · 3개월" },
-  { name: "10회권", price: "90만 원", detail: "회당 9만 원 · 6개월" },
+  {
+    name: "1회",
+    price: "17만 원",
+    suits: "소개 방식이 나와 맞는지 먼저 경험해 보고 싶은 분",
+  },
+  {
+    name: "3회권",
+    price: "45만 원",
+    detail: "회당 15만 원 · 2개월",
+    suits: "몇 번의 소개를 천천히 받아 보고 싶은 분",
+  },
+  {
+    name: "7회권",
+    price: "100만 원",
+    detail: "회당 약 14만 3천 원 · 4개월",
+    suits: "기간을 넉넉히 두고 소개를 이어 가고 싶은 분",
+  },
 ];
 
 export const pricingNote =
-  "1회는 두 분 모두 수락하고 일정이 잡힌 만남입니다. 프로필 전달 후 거절되면 횟수가 차감되지 않습니다.";
+  "모든 이용권은 선불입니다. 두 분 모두 수락하고 만남 일정이 확정된 경우에만 차감되며, 프로필만 확인하고 거절한 경우에는 차감되지 않습니다.";

@@ -10,7 +10,7 @@ export function Pricing() {
       <Container>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-7">
-            <SectionHeading title="일정이 잡힌 만남만 차감됩니다." />
+            <SectionHeading title="만남 일정이 확정될 때만 차감됩니다." />
 
             <dl className="mt-10 border-t border-ink">
               {pricePlans.map((plan) => (
@@ -30,6 +30,21 @@ export function Pricing() {
             <p className="mt-5 font-body text-[13px] leading-[1.8] text-ink-light">
               {pricingNote}
             </p>
+
+            <div className="mt-12">
+              <h3 className="font-body text-sm font-medium text-ink">이용권 선택 가이드</h3>
+              <ul className="mt-4 flex flex-col gap-2.5">
+                {pricePlans.map((plan) => (
+                  <li
+                    key={plan.name}
+                    className="grid grid-cols-[4.5rem_1fr] gap-x-6 font-body text-sm leading-[1.7] sm:grid-cols-[6rem_1fr]"
+                  >
+                    <span className="text-ink-light">{plan.name}</span>
+                    <span className="text-ink">{plan.suits}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div className="grid max-w-[22rem] grid-cols-2 gap-3 lg:col-span-5 lg:ml-auto lg:mt-16">

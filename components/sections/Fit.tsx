@@ -13,11 +13,11 @@ export function Fit() {
             description="두세 가지가 해당된다면 편하게 상담해 보세요."
           />
           <div className="lg:col-span-7">
-            <ul className="border-t border-line">
+            <ul className="grid grid-cols-1 gap-x-10 sm:grid-cols-2">
               {fitList.map((item) => (
                 <li
                   key={item}
-                  className="border-b border-line py-4 font-body text-[15px] leading-[1.7] text-ink"
+                  className="border-t border-line py-4 font-body text-[15px] leading-[1.7] text-ink"
                 >
                   {item}
                 </li>

@@ -7,7 +7,7 @@ export function Process() {
     <section id="process" className="border-t border-line py-20 sm:py-28">
       <Container>
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-20">
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-7">
             <SectionHeading title="다섯 단계로 진행됩니다" />
             <ol className="mt-10 border-t border-line">
               {steps.map((step) => (
@@ -25,8 +25,8 @@ export function Process() {
             </ol>
           </div>
 
-          <div className="lg:col-span-4">
-            <SectionHeading title="소개하지 않는 경우" />
+          <div className="lg:col-span-5">
+            <SectionHeading title="이런 경우에는 소개를 진행하지 않습니다" />
             <ul className="mt-10 border-t border-line font-body text-[15px] text-ink">
               {notForList.map((item) => (
                 <li key={item} className="border-b border-line py-4">

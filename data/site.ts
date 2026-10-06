@@ -6,7 +6,7 @@ export const siteConfig = {
   shortName: "BLAIR",
   tagline: "수백 명 대신, 한 명.",
   description:
-    "프로필을 넘기지 않습니다. 기준을 듣고, 두 분 모두 수락하면 소개합니다. 등록비 없음, 1회 12만 원부터. 상담은 전화로 진행합니다.",
+    "프로필을 넘기지 않습니다. 기준을 듣고, 두 분 모두 수락하면 소개합니다. 등록비 없음, 1회 17만 원부터. 상담은 전화로 진행합니다.",
   url: "https://www.blairdating.com",
   locale: "ko_KR",
   instagramUrl: "https://instagram.com/blairdating",
