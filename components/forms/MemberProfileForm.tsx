@@ -9,15 +9,16 @@ import {
   CheckboxGroup,
   ConsentCheckbox,
 } from "@/components/forms/FormField";
+import { PhotoUploadField } from "@/components/forms/PhotoUploadField";
 import { FormSuccess } from "@/components/forms/FormSuccess";
 import { Button } from "@/components/ui/Button";
 import { isRequired, isValidAge, isValidPhone } from "@/lib/validation";
 import { submitMemberProfile } from "@/lib/submitForm";
+import { compressImage } from "@/lib/compressImage";
 import { trackEvent } from "@/lib/analytics";
 
 // Detailed profile for members who already signed up after the phone
 // consultation. Reached only through a link the manager sends.
-// Photos are not uploaded here; members send them to their manager directly.
 type FormState = {
   name: string;
   phone: string;
@@ -93,7 +94,10 @@ const initialState: FormState = {
 };
 
 type Errors = Partial<
-  Record<keyof FormState | "assetTypes" | "consent" | "sensitiveConsent", string>
+  Record<
+    keyof FormState | "assetTypes" | "mainPhoto" | "consent" | "sensitiveConsent",
+    string
+  >
 >;
 
 const maritalOptions = [
@@ -187,6 +191,8 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 export function MemberProfileForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [assetTypes, setAssetTypes] = useState<string[]>([]);
+  const [mainPhoto, setMainPhoto] = useState<File[]>([]);
+  const [additionalPhotos, setAdditionalPhotos] = useState<File[]>([]);
   const [consent, setConsent] = useState(false);
   const [sensitiveConsent, setSensitiveConsent] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
@@ -222,6 +228,7 @@ export function MemberProfileForm() {
     if (!isRequired(form.marriagePlan)) next.marriagePlan = "결혼 계획을 선택해주세요.";
     if (!isRequired(form.mustHave)) next.mustHave = "꼭 필요한 조건을 적어주세요.";
     if (!isRequired(form.bio)) next.bio = "본인 소개를 적어주세요.";
+    if (mainPhoto.length < 1) next.mainPhoto = "대표 사진을 올려주세요.";
     if (!consent) next.consent = "개인정보 수집 및 이용에 동의해주세요.";
     if (!sensitiveConsent) next.sensitiveConsent = "민감정보 수집에 동의해주세요.";
     return next;
@@ -246,6 +253,11 @@ export function MemberProfileForm() {
     const data = new FormData();
     Object.entries(form).forEach(([key, value]) => data.append(key, value));
     if (form.hasAssets === "yes") assetTypes.forEach((t) => data.append("assetTypes", t));
+    const [main, ...extras] = await Promise.all(
+      [...mainPhoto, ...additionalPhotos].map(compressImage)
+    );
+    if (main) data.append("mainPhoto", main);
+    extras.forEach((file, i) => data.append(`additionalPhoto${i + 1}`, file));
 
     const result = await submitMemberProfile(data);
     setSubmitting(false);
@@ -587,13 +599,23 @@ export function MemberProfileForm() {
           onChange={(e) => update("bio", e.target.value)}
           error={errors.bio}
         />
-        <div className="rounded-[3px] border border-line bg-off-white p-5">
-          <p className="font-body text-sm font-medium text-ink">사진</p>
-          <p className="mt-2 font-body text-sm leading-[1.8] text-ink-light">
-            사진은 이 페이지에 올리지 않습니다. 얼굴이 잘 보이는 최근 사진 1장과 분위기를 알 수
-            있는 사진 2~3장을 담당 매니저 연락처로 보내 주세요.
-          </p>
-        </div>
+        <PhotoUploadField
+          label="대표 사진"
+          hint="얼굴이 잘 보이는 최근 사진 1장"
+          maxFiles={1}
+          files={mainPhoto}
+          onChange={setMainPhoto}
+          error={errors.mainPhoto}
+          required
+        />
+        <PhotoUploadField
+          label="추가 사진 (최대 3장)"
+          hint="분위기를 알 수 있는 사진이면 좋습니다."
+          multiple
+          maxFiles={3}
+          files={additionalPhotos}
+          onChange={setAdditionalPhotos}
+        />
         <RadioGroup
           legend="사진을 보여 드릴 시점"
           name="photoTiming"

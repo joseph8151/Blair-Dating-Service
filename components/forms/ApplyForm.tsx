@@ -13,6 +13,7 @@ import { FormSuccess } from "@/components/forms/FormSuccess";
 import { Button } from "@/components/ui/Button";
 import { isRequired, isValidEmail, isValidPhone, isValidAge } from "@/lib/validation";
 import { submitApplicantProfile } from "@/lib/submitForm";
+import { compressImage } from "@/lib/compressImage";
 import { trackEvent } from "@/lib/analytics";
 
 type FormState = {
@@ -112,8 +113,11 @@ export function ApplyForm() {
     const data = new FormData();
     Object.entries(form).forEach(([key, value]) => data.append(key, value));
     data.append("_replyto", form.email);
-    if (mainPhoto[0]) data.append("mainPhoto", mainPhoto[0]);
-    additionalPhotos.forEach((file, i) => data.append(`additionalPhoto${i}`, file));
+    const [main, ...extras] = await Promise.all(
+      [...mainPhoto, ...additionalPhotos].map(compressImage)
+    );
+    if (main) data.append("mainPhoto", main);
+    extras.forEach((file, i) => data.append(`additionalPhoto${i}`, file));
 
     const result = await submitApplicantProfile(data);
     setSubmitting(false);
