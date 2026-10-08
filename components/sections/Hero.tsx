@@ -1,11 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { BrandImage } from "@/components/ui/BrandImage";
 import { Container } from "@/components/ui/Container";
 import { brandPhotos } from "@/data/brandPhotos";
-import { pricePlans } from "@/data/pricing";
 import { trackEvent } from "@/lib/analytics";
 
 const promises = [
@@ -34,16 +32,9 @@ export function Hero() {
               ))}
             </ul>
 
-            <Link
-              href="/#pricing"
-              className="mt-8 flex flex-wrap items-baseline gap-x-5 gap-y-1 font-body text-[13px] text-ink-light"
-            >
-              {pricePlans.map((plan) => (
-                <span key={plan.name}>
-                  {plan.name} <span className="font-medium text-ink">{plan.price}</span>
-                </span>
-              ))}
-            </Link>
+            <p className="mt-8 font-body text-[13px] text-ink-light">
+              가격은 전화 상담 후 안내해 드립니다.
+            </p>
 
             <Button
               href="/consultation"

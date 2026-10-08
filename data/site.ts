@@ -8,7 +8,7 @@ export const siteConfig = {
   // Search title: what people type into Naver/Google.
   seoTitle: "블레어데이팅 | 30대·40대 소개팅, 기독교·크리스천 소개팅",
   description:
-    "30대·40대 1:1 소개팅. 기독교·크리스천 등 종교와 생활 방식까지 전화로 듣고, 두 분 모두 수락하면 한 분씩 소개합니다. 등록비 없음, 1회 17만 원부터.",
+    "30대·40대 1:1 소개팅. 기독교·크리스천 등 종교와 생활 방식까지 전화로 듣고, 두 분 모두 수락하면 한 분씩 소개합니다. 등록비 없음, 가격은 상담 후 안내.",
   // Paste the code from Naver Search Advisor (사이트 소유확인 → HTML 태그) here.
   naverSiteVerification: "",
   url: "https://www.blairdating.com",

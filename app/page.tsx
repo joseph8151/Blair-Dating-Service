@@ -29,7 +29,6 @@ const jsonLd = [
       streetAddress: businessInfo.address,
       addressCountry: "KR",
     },
-    priceRange: "₩170,000~₩1,050,000",
   },
   {
     "@context": "https://schema.org",
