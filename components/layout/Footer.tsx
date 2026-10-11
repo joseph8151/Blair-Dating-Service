@@ -35,7 +35,6 @@ export function Footer() {
         <div className="mt-10 flex flex-col gap-1.5 border-t border-line pt-7 font-body text-xs leading-relaxed text-ink-light sm:flex-row sm:flex-wrap sm:gap-x-6">
           <InfoItem label="상호" value={businessInfo.companyName} />
           <InfoItem label="대표자" value={businessInfo.representative} />
-          <InfoItem label="사업자등록번호" value={businessInfo.registrationNumber} />
           <InfoItem label="주소" value={businessInfo.address} />
         </div>
       </Container>
