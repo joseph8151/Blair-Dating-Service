@@ -33,15 +33,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
-    url: siteConfig.url,
-    title: siteConfig.seoTitle,
-    description: siteConfig.description,
+    url: `${siteConfig.url}/`,
+    title: siteConfig.ogTitle,
+    description: siteConfig.ogDescription,
     siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.seoTitle,
-    description: siteConfig.description,
+    title: siteConfig.ogTitle,
+    description: siteConfig.ogDescription,
   },
 };
 

@@ -13,7 +13,7 @@ import { businessInfo, siteConfig } from "@/data/site";
 import { faqItems } from "@/data/faq";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "/" },
+  alternates: { canonical: `${siteConfig.url}/` },
 };
 
 // Structured data for search engines (Naver, Google): the business and the FAQ.
