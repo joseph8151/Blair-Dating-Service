@@ -10,7 +10,7 @@ export const siteConfig = {
   description:
     "30대·40대 1:1 소개팅. 기독교·크리스천 등 종교와 생활 방식까지 전화로 듣고, 두 분 모두 수락하면 한 분씩 소개합니다. 등록비 없음, 가격은 상담 후 안내.",
   // Paste the code from Naver Search Advisor (사이트 소유확인 → HTML 태그) here.
-  naverSiteVerification: "",
+  naverSiteVerification: "014192892d1c792a714ce780c8ce4fbb3fdc4601",
   url: "https://www.blairdating.com",
   locale: "ko_KR",
   instagramUrl: "https://instagram.com/blairdating",
