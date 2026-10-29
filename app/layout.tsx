@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyMobileCta } from "@/components/layout/StickyMobileCta";
 import { siteConfig } from "@/data/site";
+import { seoKeywords } from "@/data/seoKeywords";
 import "./globals.css";
 
 // Headlines: Korean myeongjo.
@@ -25,18 +26,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: [
-    "30대 소개팅",
-    "40대 소개팅",
-    "기독교 소개팅",
-    "크리스천 소개팅",
-    "크리스찬 소개팅",
-    "교회 소개팅",
-    "종교 소개팅",
-    "1:1 소개팅",
-    "소개팅 서비스",
-    "블레어데이팅",
-  ],
+  keywords: seoKeywords,
   ...(siteConfig.naverSiteVerification
     ? { verification: { other: { "naver-site-verification": siteConfig.naverSiteVerification } } }
     : {}),
