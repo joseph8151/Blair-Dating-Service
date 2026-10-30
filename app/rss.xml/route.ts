@@ -1,4 +1,5 @@
 import { siteConfig } from "@/data/site";
+import { landings } from "@/data/landings";
 
 // RSS feed for Naver Search Advisor (요청 → RSS 제출). Lists the public pages.
 export const dynamic = "force-static";
@@ -16,6 +17,11 @@ const items = [
     title: "소개팅 매칭 후보 등록 | 블레어데이팅",
     description: "등록비 없이 매칭 후보로 등록하고, 기준이 맞는 분이 있으면 먼저 여쭙습니다.",
   },
+  ...Object.values(landings).map((l) => ({
+    path: `/${l.slug}`,
+    title: `${l.metaTitle} | 블레어데이팅`,
+    description: l.metaDescription,
+  })),
 ];
 
 function escape(text: string) {
