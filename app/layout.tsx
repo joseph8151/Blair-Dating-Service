@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: seoKeywords,
+  alternates: {
+    types: { "application/rss+xml": `${siteConfig.url}/rss.xml` },
+  },
   ...(siteConfig.naverSiteVerification
     ? { verification: { other: { "naver-site-verification": siteConfig.naverSiteVerification } } }
     : {}),

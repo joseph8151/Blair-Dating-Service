@@ -4,9 +4,10 @@ import { ApplyForm } from "@/components/forms/ApplyForm";
 import { applyPolicyPoints } from "@/data/config";
 
 export const metadata: Metadata = {
-  title: "매칭 후보 등록",
+  title: "소개팅 매칭 후보 등록",
   description:
-    "등록비 없이 매칭 후보로 등록합니다. 기준이 맞는 분이 있으면 먼저 여쭙고, 동의하시면 소개합니다.",
+    "블레어데이팅 소개팅 매칭 후보 등록. 등록비 없이 등록하고, 기준이 맞는 분이 있으면 먼저 여쭙고 동의하시면 소개합니다. 프로필은 목록에 노출되지 않습니다.",
+  alternates: { canonical: "/apply" },
 };
 
 export default function ApplyPage() {

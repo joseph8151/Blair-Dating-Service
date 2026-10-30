@@ -18,9 +18,14 @@ export function Hero() {
       <Container>
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6">
-            <p className="mb-4 font-body text-[13px] text-ink-light">30대·40대 1:1 소개팅</p>
-            <h1 className="font-display text-[2.3rem] font-medium leading-[1.3] tracking-[-0.03em] text-ink sm:text-5xl lg:text-[3.2rem]">
-              수백 명 대신, 한 명.
+            {/* The small keyword line is part of the h1 so search engines read it as the page topic. */}
+            <h1>
+              <span className="mb-4 block font-body text-[13px] font-normal text-ink-light">
+                30대·40대 프라이빗 1:1 소개팅
+              </span>
+              <span className="block font-display text-[2.3rem] font-medium leading-[1.3] tracking-[-0.03em] text-ink sm:text-5xl lg:text-[3.2rem]">
+                수백 명 대신, 한 명.
+              </span>
             </h1>
             <p className="mt-5 max-w-md font-body text-base leading-[1.8] text-ink-light sm:text-[17px]">
               프로필을 넘기지 않습니다. 기준을 듣고, 두 분 모두 수락하면 소개합니다.

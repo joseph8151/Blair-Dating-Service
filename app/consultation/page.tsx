@@ -4,9 +4,10 @@ import { Container } from "@/components/ui/Container";
 import { ConsultationForm } from "@/components/forms/ConsultationForm";
 
 export const metadata: Metadata = {
-  title: "전화 상담 신청",
+  title: "소개팅 전화 상담 신청",
   description:
-    "번호를 남겨 주시면 매니저가 전화로 기준을 듣습니다. 상담 내용은 비공개로 관리됩니다.",
+    "블레어데이팅 1:1 소개팅 전화 상담 신청. 원하는 상대의 외모, 종교, 생활 방식을 매니저가 전화로 듣고 한 분씩 소개합니다. 상담 내용은 비공개로 관리됩니다.",
+  alternates: { canonical: "/consultation" },
 };
 
 export default function ConsultationPage() {

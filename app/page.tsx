@@ -13,7 +13,10 @@ import { businessInfo, siteConfig } from "@/data/site";
 import { faqItems } from "@/data/faq";
 
 export const metadata: Metadata = {
-  alternates: { canonical: `${siteConfig.url}/` },
+  alternates: {
+    canonical: `${siteConfig.url}/`,
+    types: { "application/rss+xml": `${siteConfig.url}/rss.xml` },
+  },
 };
 
 // Structured data for search engines (Naver, Google): the business and the FAQ.
@@ -22,13 +25,24 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: businessInfo.companyName,
+    alternateName: ["블레어 데이팅", "Blair Dating"],
     url: siteConfig.url,
+    image: `${siteConfig.url}/opengraph-image.png`,
+    sameAs: [siteConfig.instagramUrl],
     description: siteConfig.description,
     address: {
       "@type": "PostalAddress",
       streetAddress: businessInfo.address,
       addressCountry: "KR",
     },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteConfig.name,
+    alternateName: ["블레어 데이팅", "Blair Dating"],
+    url: siteConfig.url,
+    inLanguage: "ko-KR",
   },
   {
     "@context": "https://schema.org",
