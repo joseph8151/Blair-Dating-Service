@@ -29,6 +29,12 @@ const jsonLd = [
     url: siteConfig.url,
     image: `${siteConfig.url}/opengraph-image.png`,
     sameAs: [siteConfig.instagramUrl],
+    areaServed: [
+      { "@type": "City", name: "서울" },
+      { "@type": "AdministrativeArea", name: "경기도" },
+      { "@type": "City", name: "인천" },
+    ],
+    knowsAbout: ["1:1 소개팅", "30대·40대 소개팅", "기독교·크리스천 소개팅", "직장인 소개팅"],
     description: siteConfig.description,
     address: {
       "@type": "PostalAddress",
