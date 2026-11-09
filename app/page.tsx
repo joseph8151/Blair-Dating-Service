@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { Focus } from "@/components/sections/Focus";
 import { Pricing } from "@/components/sections/Pricing";
 import { Comparison } from "@/components/sections/Comparison";
 import { Fit } from "@/components/sections/Fit";
@@ -69,6 +70,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
+      <Focus />
       <Pricing />
       <Comparison />
       <Fit />

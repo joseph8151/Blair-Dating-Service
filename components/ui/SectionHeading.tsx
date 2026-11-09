@@ -12,7 +12,7 @@ export function SectionHeading({
 }) {
   return (
     <div className={cn("max-w-xl", className)}>
-      <h2 className="font-display text-[1.6rem] font-medium leading-[1.4] tracking-[-0.02em] text-ink sm:text-[2rem]">
+      <h2 className="font-display text-[1.7rem] font-medium leading-[1.4] tracking-[-0.025em] text-ink sm:text-[2.15rem]">
         {title}
       </h2>
       {description ? (
