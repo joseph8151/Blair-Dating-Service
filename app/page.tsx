@@ -4,6 +4,7 @@ import { Pricing } from "@/components/sections/Pricing";
 import { Comparison } from "@/components/sections/Comparison";
 import { Fit } from "@/components/sections/Fit";
 import { Criteria } from "@/components/sections/Criteria";
+import { Questions } from "@/components/sections/Questions";
 import { IntroExample } from "@/components/sections/IntroExample";
 import { Process } from "@/components/sections/Process";
 import { CafeBand } from "@/components/sections/CafeBand";
@@ -76,6 +77,7 @@ export default function Home() {
       <Fit />
       <IntroExample />
       <Criteria />
+      <Questions />
       <Process />
       <CafeBand />
       <Faq />
