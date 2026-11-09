@@ -7,6 +7,7 @@ export function IntroExample() {
     <section id="example" className="border-t border-line py-20 sm:py-28">
       <Container>
         <SectionHeading
+          index="04"
           title="실제 소개는 이렇게 진행됩니다"
           description="이해를 돕기 위해 만든 예시입니다. 실제 회원 정보가 아닙니다."
         />

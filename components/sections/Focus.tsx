@@ -45,7 +45,7 @@ export function Focus() {
               }
             >
               <p className="flex items-baseline gap-3 font-body text-[13px] text-ink-light">
-                <span className="font-display text-base text-accent">{item.number}</span>
+                <span aria-hidden className="h-px w-8 self-center bg-accent/40" />
                 {item.label}
               </p>
               <h2 className="mt-6 whitespace-pre-line font-display text-[1.75rem] font-medium leading-[1.4] tracking-[-0.02em] text-ink sm:text-[2.1rem]">

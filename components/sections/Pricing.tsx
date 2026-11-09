@@ -12,6 +12,7 @@ export function Pricing() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-7">
             <SectionHeading
+              index="01"
               title="가격은 상담 후 안내합니다."
               description="전화 상담에서 원하시는 기준을 들은 뒤, 이용 방법과 비용을 안내해 드립니다."
             />

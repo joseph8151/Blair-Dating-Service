@@ -11,7 +11,7 @@ export function Faq() {
     <section id="faq" className="border-t border-line py-20 sm:py-28">
       <Container>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-20">
-          <SectionHeading className="lg:col-span-4" title="자주 묻는 질문" />
+          <SectionHeading index="08" className="lg:col-span-4" title="자주 묻는 질문" />
 
           <div className="border-t border-line lg:col-span-8">
             {faqItems.map((item) => (

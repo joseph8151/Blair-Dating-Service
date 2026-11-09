@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { BrandImage } from "@/components/ui/BrandImage";
 import { Container } from "@/components/ui/Container";
@@ -25,7 +26,7 @@ export function Hero() {
                 <span aria-hidden className="h-px w-8 bg-accent/40" />
                 30대·40대 직장인 · 무교·기독교·천주교 1:1 소개팅
               </span>
-              <span className="block font-display text-[2.5rem] font-medium leading-[1.25] tracking-[-0.035em] text-ink sm:text-[3.4rem] lg:text-[3.8rem]">
+              <span className="block font-display text-[2.7rem] font-medium leading-[1.18] tracking-[-0.045em] text-ink sm:text-[3.8rem] lg:text-[4.6rem]">
                 수백 명 대신,
                 <br />
                 한 명.
@@ -50,6 +51,7 @@ export function Hero() {
                 onClick={() => trackEvent("cta_consultation_click", { location: "hero" })}
               >
                 전화 상담 신청
+                <ArrowRight size={16} />
               </Button>
               <p className="font-body text-[13px] leading-[1.6] text-ink-light">
                 가격은 전화 상담에서
@@ -59,7 +61,13 @@ export function Hero() {
           </div>
 
           {/* Woman and man side by side; the second frame sits lower for an editorial rhythm. */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:col-span-6">
+          <div className="relative grid grid-cols-2 gap-3 sm:gap-5 lg:col-span-6">
+            <p
+              aria-hidden
+              className="absolute -right-8 top-0 hidden font-body text-[11px] tracking-[0.3em] text-ink-light [writing-mode:vertical-rl] xl:block"
+            >
+              서울 · 경기 · 인천 — 한 분씩 소개합니다
+            </p>
             <BrandImage
               photo={brandPhotos.womanWindow}
               priority

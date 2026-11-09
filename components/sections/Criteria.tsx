@@ -15,6 +15,7 @@ export function Criteria() {
       <Container>
         <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-12 lg:gap-20">
           <SectionHeading
+            index="05"
             className="lg:col-span-5"
             title="네 가지를 여쭙니다."
             description="조건표 대신 전화로 직접 듣습니다."

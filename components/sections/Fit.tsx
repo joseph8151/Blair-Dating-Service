@@ -8,6 +8,7 @@ export function Fit() {
       <Container>
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-20">
           <SectionHeading
+            index="03"
             className="lg:col-span-5"
             title="이런 분께 잘 맞습니다"
             description="두세 가지가 해당된다면 편하게 상담해 보세요."

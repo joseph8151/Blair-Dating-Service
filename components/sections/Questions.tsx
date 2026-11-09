@@ -31,6 +31,7 @@ export function Questions() {
     <section id="questions" className="border-t border-line py-20 sm:py-28">
       <Container>
         <SectionHeading
+          index="06"
           title="상담에서는 이런 것을 여쭙니다"
           description="처음 통화에서 모두 정하지 않아도 됩니다. 중요한 것부터 함께 정리하고, 만남 후 이야기를 들으며 기준을 조정합니다."
         />

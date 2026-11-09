@@ -8,7 +8,7 @@ export function Process() {
       <Container>
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-7">
-            <SectionHeading title="다섯 단계로 진행됩니다" />
+            <SectionHeading index="07" title="다섯 단계로 진행됩니다" />
             <ol className="mt-10 border-t border-line">
               {steps.map((step) => (
                 <li
