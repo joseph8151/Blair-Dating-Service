@@ -37,7 +37,7 @@ export function Header() {
       <div className="mx-auto flex h-16 w-full max-w-content items-center justify-between px-5 sm:h-[72px] sm:px-8 lg:px-10">
         <Link
           href="/"
-          className="flex-none font-display text-lg font-medium tracking-[-0.01em] text-ink"
+          className="flex-none font-display text-[1.2rem] font-medium tracking-[-0.02em] text-ink"
           onClick={() => setOpen(false)}
         >
           {siteConfig.wordmark}
@@ -48,9 +48,13 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="whitespace-nowrap font-body text-[13px] text-ink-light transition-colors hover:text-ink"
+              className="group relative whitespace-nowrap font-body text-[13px] text-ink-light transition-colors hover:text-ink"
             >
               {item.label}
+              <span
+                aria-hidden
+                className="absolute -bottom-1.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full"
+              />
             </Link>
           ))}
         </nav>

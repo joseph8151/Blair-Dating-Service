@@ -4,7 +4,7 @@ import { introExample } from "@/data/introExample";
 
 export function IntroExample() {
   return (
-    <section id="example" className="border-t border-line py-20 sm:py-28">
+    <section id="example" className="border-t border-line bg-[#efeae3] py-20 sm:py-28">
       <Container>
         <SectionHeading
           index="04"

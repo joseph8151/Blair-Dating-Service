@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { footerNavItems } from "@/data/nav";
 import { businessInfo, siteConfig } from "@/data/site";
@@ -15,10 +17,21 @@ function InfoItem({ label, value }: { label: string; value: string }) {
 
 export function Footer() {
   return (
-    <footer className="border-t border-line pb-28 pt-14 lg:pb-14">
+    <footer className="border-t border-line pb-28 pt-20 lg:pb-14">
       <Container>
+        <div className="mb-16 flex flex-col gap-8 border-b border-line pb-16 lg:flex-row lg:items-end lg:justify-between">
+          <p className="font-display text-[2.2rem] font-medium leading-[1.2] tracking-[-0.04em] text-ink sm:text-[3rem]">
+            수백 명 대신,
+            <br />
+            한 명.
+          </p>
+          <Button href="/consultation" size="lg" className="self-start lg:self-auto">
+            전화 상담 신청
+            <ArrowRight size={16} />
+          </Button>
+        </div>
         <div className="flex flex-col gap-8 lg:flex-row lg:items-baseline lg:justify-between">
-          <p className="font-display text-lg font-medium text-ink">{siteConfig.wordmark}</p>
+          <p className="font-display text-[1.2rem] font-medium tracking-[-0.02em] text-ink">{siteConfig.wordmark}</p>
           <nav className="flex flex-wrap gap-x-7 gap-y-3">
             {footerNavItems.map((item) => (
               <Link
