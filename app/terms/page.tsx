@@ -4,6 +4,17 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "이용약관",
+  description: "블레어데이팅 서비스 이용에 관한 약관입니다.",
+  alternates: { canonical: "/terms" },
+  openGraph: {
+    title: "이용약관 | 블레어데이팅",
+    description: "블레어데이팅 서비스 이용에 관한 약관입니다.",
+    url: "/terms",
+    type: "website",
+    locale: "ko_KR",
+    siteName: "블레어데이팅",
+    images: ["/opengraph-image.png"],
+  },
 };
 
 // Placeholder terms text — replace with counsel-reviewed content before launch.

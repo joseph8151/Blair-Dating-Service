@@ -25,6 +25,12 @@ type FormState = {
   job: string;
   height: string;
   religion: string;
+  religiousLife: string;
+  partnerReligion: string;
+  maritalStatus: string;
+  drinking: string;
+  smoking: string;
+  callTime: string;
   phone: string;
   email: string;
   sns: string;
@@ -42,6 +48,12 @@ const initialState: FormState = {
   job: "",
   height: "",
   religion: "",
+  religiousLife: "",
+  partnerReligion: "",
+  maritalStatus: "",
+  drinking: "",
+  smoking: "",
+  callTime: "",
   phone: "",
   email: "",
   sns: "",
@@ -60,6 +72,46 @@ const religionOptions = [
   { value: "other", label: "기타" },
 ];
 
+const maritalOptions = [
+  { value: "single", label: "미혼" },
+  { value: "divorced", label: "이혼" },
+  { value: "widowed", label: "사별" },
+  { value: "private", label: "말하기 어려움" },
+];
+
+// Shown only when the applicant has a religion.
+const religiousLifeOptions = [
+  { value: "weekly", label: "매주 참여" },
+  { value: "sometimes", label: "가끔 참여" },
+  { value: "rarely", label: "거의 참여 안 함" },
+];
+
+const partnerReligionOptions = [
+  { value: "same", label: "같은 종교 원함" },
+  { value: "respect", label: "존중하면 무관" },
+  { value: "any", label: "상관없음" },
+];
+
+const drinkingOptions = [
+  { value: "no", label: "안 마심" },
+  { value: "sometimes", label: "가끔" },
+  { value: "often", label: "자주" },
+];
+
+const smokingOptions = [
+  { value: "no", label: "비흡연" },
+  { value: "yes", label: "흡연" },
+];
+
+const callTimeOptions = [
+  { value: "weekday_day", label: "평일 낮" },
+  { value: "weekday_evening", label: "평일 저녁" },
+  { value: "weekend", label: "주말" },
+  { value: "any", label: "언제든 괜찮음" },
+];
+
+// TODO(owner): "데이트" 선택지가 결혼·진지한 만남 중심 포지셔닝과 맞는지 판단해 주세요.
+// 유지할지 삭제할지 정해지기 전까지는 그대로 둡니다.
 const goalOptions = [
   { value: "dating", label: "데이트" },
   { value: "serious", label: "진지한 연애" },
@@ -91,6 +143,7 @@ export function ApplyForm() {
     if (!isRequired(form.job)) next.job = "직업을 입력해주세요.";
     if (!isRequired(form.height)) next.height = "키를 입력해주세요.";
     if (!isRequired(form.religion)) next.religion = "종교를 선택해주세요.";
+    if (!isRequired(form.maritalStatus)) next.maritalStatus = "혼인 이력을 선택해주세요.";
     if (!isValidPhone(form.phone)) next.phone = "연락처를 정확히 입력해주세요.";
     if (!isValidEmail(form.email)) next.email = "이메일을 정확히 입력해주세요.";
     if (!isRequired(form.bio)) next.bio = "본인 소개를 입력해주세요.";
@@ -111,7 +164,11 @@ export function ApplyForm() {
     setSubmitting(true);
     setSubmitError(null);
     const data = new FormData();
-    Object.entries(form).forEach(([key, value]) => data.append(key, value));
+    const hasReligion = form.religion !== "" && form.religion !== "none";
+    Object.entries(form).forEach(([key, value]) => {
+      if (key === "religiousLife" && !hasReligion) return;
+      data.append(key, value);
+    });
     data.append("_replyto", form.email);
     const [main, ...extras] = await Promise.all(
       [...mainPhoto, ...additionalPhotos].map(compressImage)
@@ -133,8 +190,18 @@ export function ApplyForm() {
   if (submitted) {
     return (
       <FormSuccess
-        title="등록되었습니다."
-        description="기준이 맞는 분이 있으면 매니저가 먼저 연락드립니다. 동의 없이 소개하지 않습니다."
+        title="등록이 완료되었습니다."
+        description="기준이 맞는 분이 있을 때 매니저가 먼저 연락드립니다."
+        actions={
+          <>
+            <Button href="/" variant="ghost" size="md">
+              홈으로
+            </Button>
+            <Button href="/consultation" size="md">
+              전화 상담 신청
+            </Button>
+          </>
+        }
       />
     );
   }
@@ -213,6 +280,52 @@ export function ApplyForm() {
           options={religionOptions}
           error={errors.religion}
         />
+        <RadioGroup
+          legend="혼인 이력"
+          name="maritalStatus"
+          required
+          value={form.maritalStatus}
+          onChange={(v) => update("maritalStatus", v)}
+          options={maritalOptions}
+          error={errors.maritalStatus}
+        />
+        {form.religion !== "" && form.religion !== "none" ? (
+          <RadioGroup
+            legend="종교 생활 정도"
+            name="religiousLife"
+            value={form.religiousLife}
+            onChange={(v) => update("religiousLife", v)}
+            options={religiousLifeOptions}
+          />
+        ) : null}
+        <RadioGroup
+          legend="상대 종교 기준"
+          name="partnerReligion"
+          value={form.partnerReligion}
+          onChange={(v) => update("partnerReligion", v)}
+          options={partnerReligionOptions}
+        />
+        <RadioGroup
+          legend="음주"
+          name="drinking"
+          value={form.drinking}
+          onChange={(v) => update("drinking", v)}
+          options={drinkingOptions}
+        />
+        <RadioGroup
+          legend="흡연"
+          name="smoking"
+          value={form.smoking}
+          onChange={(v) => update("smoking", v)}
+          options={smokingOptions}
+        />
+        <RadioGroup
+          legend="통화 가능한 시간대"
+          name="callTime"
+          value={form.callTime}
+          onChange={(v) => update("callTime", v)}
+          options={callTimeOptions}
+        />
         <TextField
           label="연락처"
           name="phone"
@@ -266,6 +379,11 @@ export function ApplyForm() {
         onChange={(e) => update("idealType", e.target.value)}
         error={errors.idealType}
       />
+
+      <div className="rounded-[3px] border border-line bg-off-white p-5 font-body text-sm leading-[1.8] text-ink-light">
+        사진은 소개가 검토되는 상대에게만, 본인이 동의하신 범위 안에서 보여 드립니다.
+        {/* TODO(owner): 사진 보관 기간과 삭제 요청 방법을 알려 주시면 이 안내에 한 줄 추가합니다. */}
+      </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <PhotoUploadField

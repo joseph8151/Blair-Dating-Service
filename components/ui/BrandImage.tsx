@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { brandPhotoAlt, type BrandPhoto } from "@/data/brandPhotos";
+import type { BrandPhoto } from "@/data/brandPhotos";
 import { cn } from "@/lib/utils";
 
 export function BrandImage({
@@ -17,7 +17,7 @@ export function BrandImage({
     <div className={cn("group relative overflow-hidden bg-line", className)}>
       <Image
         src={photo.src}
-        alt={brandPhotoAlt}
+        alt={photo.alt}
         fill
         priority={priority}
         sizes={sizes ?? "(min-width: 1024px) 33vw, 100vw"}

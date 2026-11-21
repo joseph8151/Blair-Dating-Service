@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { footerNavItems } from "@/data/nav";
+import { footerGuideItems, footerNavItems } from "@/data/nav";
 import { businessInfo, siteConfig } from "@/data/site";
 
 // Empty values still show their label, so the slot stays visible until filled.
@@ -45,6 +45,23 @@ export function Footer() {
           </nav>
         </div>
 
+        <nav aria-label="소개팅 안내" className="mt-10 flex flex-wrap gap-x-6 gap-y-2.5 border-t border-line pt-7">
+          {footerGuideItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="font-body text-[12px] text-ink-light transition-colors hover:text-ink"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* TODO(owner): 값을 알려 주시면 아래 사업자 정보 줄에 추가합니다. 값이 없어 지금은 노출하지 않습니다.
+            - 사업자등록번호 [ ] (이전에 하단에서 빼 달라고 하셨습니다. 다시 넣을지 정해 주세요.)
+            - 결혼중개업 신고번호 [ ] (신고필증 정보가 있을 때만)
+            - 대표 연락처 [ ], 이메일 [ ] (이전에 메일 주소는 모두 빼 달라고 하셨습니다.)
+            - 상담 운영 시간 [ ] */}
         <div className="mt-10 flex flex-col gap-1.5 border-t border-line pt-7 font-body text-xs leading-relaxed text-ink-light sm:flex-row sm:flex-wrap sm:gap-x-6">
           <InfoItem label="상호" value={businessInfo.companyName} />
           <InfoItem label="대표자" value={businessInfo.representative} />

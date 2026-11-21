@@ -83,7 +83,7 @@ export function LandingPage({ landing }: { landing: Landing }) {
         <section className="border-t border-line py-20 sm:py-24">
           <Container>
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-20">
-              <SectionHeading className="lg:col-span-4" title="소개 지역" />
+              <SectionHeading className="lg:col-span-4" title={landing.groupsTitle ?? "소개 지역"} />
               <div className="flex flex-col gap-10 lg:col-span-8">
                 {landing.groups.map((group) => (
                   <div key={group.name} className="border-t border-ink pt-5">
@@ -96,6 +96,34 @@ export function LandingPage({ landing }: { landing: Landing }) {
                   </div>
                 ))}
               </div>
+            </div>
+          </Container>
+        </section>
+      ) : null}
+
+      {landing.links ? (
+        <section className="border-t border-line py-20 sm:py-24">
+          <Container>
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-20">
+              <SectionHeading className="lg:col-span-4" title="생활권별 안내" />
+              <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:col-span-8">
+                {landing.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="group flex h-full flex-col border border-line p-5 transition-colors hover:border-accent/40"
+                    >
+                      <span className="font-display text-lg font-medium text-ink">{link.label}</span>
+                      <span className="mt-2 flex-1 font-body text-[13px] leading-[1.7] text-ink-light">
+                        {link.description}
+                      </span>
+                      <span className="mt-4 font-body text-[13px] font-medium text-accent">
+                        자세히 보기 →
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </Container>
         </section>

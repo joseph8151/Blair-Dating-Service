@@ -9,6 +9,7 @@ import { IntroExample } from "@/components/sections/IntroExample";
 import { Process } from "@/components/sections/Process";
 import { CafeBand } from "@/components/sections/CafeBand";
 import { Faq } from "@/components/sections/Faq";
+import { AfterMeeting } from "@/components/sections/AfterMeeting";
 import { PoolLink } from "@/components/sections/PoolLink";
 import type { Metadata } from "next";
 import { businessInfo, siteConfig } from "@/data/site";
@@ -78,8 +79,11 @@ export default function Home() {
       <IntroExample />
       <Criteria />
       <Questions />
+      {/* TODO(owner): 매니저 소개 섹션 "상담은 매니저가 직접 합니다" — [이름 또는 직함],
+          [경력 한두 줄], [상담 원칙 한 문장], [매니저 사진 파일(선택)]을 알려 주시면 이 자리에 넣습니다. */}
       <Process />
       <CafeBand />
+      <AfterMeeting />
       <Faq />
       <PoolLink />
     </>

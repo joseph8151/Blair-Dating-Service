@@ -28,6 +28,9 @@ export function Process() {
           <h3 className="font-display text-xl font-medium tracking-[-0.02em] text-ink lg:col-span-5">
             이런 경우에는 소개를 진행하지 않습니다
           </h3>
+          {/* TODO(owner): "소개 전에 이렇게 확인합니다" — 실제로 확인하는 항목(본인 확인 방식,
+              재직 확인 여부, 혼인 이력 확인 방식 등)을 알려 주시면 이 옆에 넣고,
+              허위 프로필로 확인되면 소개를 중단한다는 원칙과 연결합니다. */}
           <ul className="flex flex-wrap gap-3 lg:col-span-7">
             {notForList.map((item) => (
               <li

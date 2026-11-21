@@ -8,6 +8,15 @@ export const metadata: Metadata = {
   description:
     "블레어데이팅 소개팅 매칭 후보 등록. 등록비 없이 등록하고, 기준이 맞는 분이 있으면 먼저 여쭙고 동의하시면 소개합니다. 프로필은 목록에 노출되지 않습니다.",
   alternates: { canonical: "/apply" },
+  openGraph: {
+    title: "소개팅 매칭 후보 등록 | 블레어데이팅",
+    description: "등록비 없이 매칭 후보로 등록하고, 기준이 맞는 분이 있으면 먼저 여쭙습니다.",
+    url: "/apply",
+    type: "website",
+    locale: "ko_KR",
+    siteName: "블레어데이팅",
+    images: ["/opengraph-image.png"],
+  },
 };
 
 export default function ApplyPage() {

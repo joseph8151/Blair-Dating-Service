@@ -4,6 +4,17 @@ import { businessInfo, siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "개인정보처리방침",
+  description: "블레어데이팅이 상담과 소개 과정에서 받는 개인정보와 그 관리 방법을 안내합니다.",
+  alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: "개인정보처리방침 | 블레어데이팅",
+    description: "블레어데이팅이 상담과 소개 과정에서 받는 개인정보와 그 관리 방법을 안내합니다.",
+    url: "/privacy",
+    type: "website",
+    locale: "ko_KR",
+    siteName: "블레어데이팅",
+    images: ["/opengraph-image.png"],
+  },
 };
 
 // Placeholder policy text — replace with counsel-reviewed content before launch.
