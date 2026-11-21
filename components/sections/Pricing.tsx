@@ -18,6 +18,7 @@ export function Pricing() {
             />
             <ul className="mt-10 border-t border-line font-body text-[15px] leading-[1.7] text-ink">
               <li className="border-b border-line py-4">등록비는 없습니다.</li>
+              <li className="border-b border-line py-4">1회권도 구입하실 수 있습니다.</li>
               <li className="border-b border-line py-4">
                 두 분 모두 수락하고 만남 일정이 확정된 경우에만 횟수가 차감됩니다.
               </li>

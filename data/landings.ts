@@ -55,7 +55,7 @@ export const landings: Record<string, Landing> = {
       },
       {
         question: "가격은 어떻게 되나요?",
-        answer: "전화 상담 후 안내해 드립니다. 등록비는 없습니다.",
+        answer: "전화 상담 후 안내해 드립니다. 1회권도 구입하실 수 있고, 등록비는 없습니다.",
       },
     ],
     ctaHref: "/consultation?interest=faith",
@@ -91,7 +91,7 @@ export const landings: Record<string, Landing> = {
       },
       {
         question: "가격은 어떻게 되나요?",
-        answer: "전화 상담 후 안내해 드립니다. 등록비는 없습니다.",
+        answer: "전화 상담 후 안내해 드립니다. 1회권도 구입하실 수 있고, 등록비는 없습니다.",
       },
     ],
     ctaHref: "/consultation",
@@ -166,7 +166,7 @@ export const landings: Record<string, Landing> = {
       },
       {
         question: "가격은 어떻게 되나요?",
-        answer: "전화 상담 후 안내해 드립니다. 등록비는 없습니다.",
+        answer: "전화 상담 후 안내해 드립니다. 1회권도 구입하실 수 있고, 등록비는 없습니다.",
       },
     ],
     ctaHref: "/consultation",
@@ -202,7 +202,7 @@ export const landings: Record<string, Landing> = {
       },
       {
         question: "가격은 어떻게 되나요?",
-        answer: "전화 상담 후 안내해 드립니다. 등록비는 없습니다.",
+        answer: "전화 상담 후 안내해 드립니다. 1회권도 구입하실 수 있고, 등록비는 없습니다.",
       },
     ],
     ctaHref: "/consultation",
@@ -235,7 +235,7 @@ export const landings: Record<string, Landing> = {
       },
       {
         question: "가격은 어떻게 되나요?",
-        answer: "전화 상담 후 안내해 드립니다. 등록비는 없습니다.",
+        answer: "전화 상담 후 안내해 드립니다. 1회권도 구입하실 수 있고, 등록비는 없습니다.",
       },
     ],
     ctaHref: "/consultation?interest=lifestyle",
@@ -269,7 +269,7 @@ export const landings: Record<string, Landing> = {
       },
       {
         question: "가격은 어떻게 되나요?",
-        answer: "전화 상담 후 안내해 드립니다. 등록비는 없습니다.",
+        answer: "전화 상담 후 안내해 드립니다. 1회권도 구입하실 수 있고, 등록비는 없습니다.",
       },
     ],
     ctaHref: "/consultation?interest=global",
@@ -317,7 +317,7 @@ export const landings: Record<string, Landing> = {
       },
       {
         question: "가격은 어떻게 되나요?",
-        answer: "전화 상담 후 안내해 드립니다. 등록비는 없습니다.",
+        answer: "전화 상담 후 안내해 드립니다. 1회권도 구입하실 수 있고, 등록비는 없습니다.",
       },
     ],
     ctaHref: "/consultation",
@@ -364,7 +364,7 @@ export const landings: Record<string, Landing> = {
       },
       {
         question: "가격은 어떻게 되나요?",
-        answer: "전화 상담 후 안내해 드립니다. 등록비는 없습니다.",
+        answer: "전화 상담 후 안내해 드립니다. 1회권도 구입하실 수 있고, 등록비는 없습니다.",
       },
     ],
     ctaHref: "/consultation",
@@ -412,7 +412,7 @@ export const landings: Record<string, Landing> = {
       },
       {
         question: "가격은 어떻게 되나요?",
-        answer: "전화 상담 후 안내해 드립니다. 등록비는 없습니다.",
+        answer: "전화 상담 후 안내해 드립니다. 1회권도 구입하실 수 있고, 등록비는 없습니다.",
       },
     ],
     ctaHref: "/consultation",
