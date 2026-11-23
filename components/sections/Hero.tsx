@@ -22,8 +22,7 @@ export function Hero() {
           <div className="lg:col-span-6">
             {/* The small keyword line is part of the h1 so search engines read it as the page topic. */}
             <h1>
-              <span className="mb-6 flex items-center gap-3 font-body text-[13px] font-normal tracking-[0.02em] text-ink-light">
-                <span aria-hidden className="h-px w-8 bg-accent/40" />
+              <span className="mb-6 block font-body text-[13px] font-normal text-ink-light">
                 30대·40대 직장인 · 무교·기독교·천주교 1:1 소개팅
               </span>
               <span className="block font-display text-[2.7rem] font-medium leading-[1.18] tracking-[-0.045em] text-ink sm:text-[3.8rem] lg:text-[4.6rem]">
@@ -38,7 +37,7 @@ export function Hero() {
               드립니다.
             </p>
 
-            <ul className="mt-8 flex flex-col gap-2.5 border-l border-accent/25 pl-5 font-body text-[14px] leading-[1.7] text-ink">
+            <ul className="mt-8 grid grid-cols-1 gap-x-8 gap-y-3 font-body text-[14px] leading-[1.7] text-ink sm:grid-cols-2">
               {promises.map((line) => (
                 <li key={line}>{line}</li>
               ))}
@@ -61,13 +60,7 @@ export function Hero() {
           </div>
 
           {/* Woman and man side by side; the second frame sits lower for an editorial rhythm. */}
-          <div className="relative grid grid-cols-2 gap-3 sm:gap-5 lg:col-span-6">
-            <p
-              aria-hidden
-              className="absolute -right-8 top-0 hidden font-body text-[11px] tracking-[0.3em] text-ink-light [writing-mode:vertical-rl] xl:block"
-            >
-              서울 · 경기 · 인천 — 한 분씩 소개합니다
-            </p>
+          <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:col-span-6">
             <BrandImage
               photo={brandPhotos.womanWindow}
               priority

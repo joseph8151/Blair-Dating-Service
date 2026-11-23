@@ -1,61 +1,60 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { BrandImage } from "@/components/ui/BrandImage";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
 import { brandPhotos } from "@/data/brandPhotos";
 import { criteria } from "@/data/criteria";
 import { trackEvent } from "@/lib/analytics";
 
+// The four criteria together with what is actually asked on the call.
 export function Criteria() {
   return (
     <section id="criteria" className="border-t border-line py-20 sm:py-28">
       <Container>
-        <div className="grid grid-cols-1 items-end gap-10 lg:grid-cols-12 lg:gap-20">
-          <SectionHeading
-            index="05"
-            className="lg:col-span-5"
-            title="네 가지를 여쭙니다."
-            description="조건표 대신 전화로 직접 듣습니다."
-          />
-          <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:col-span-7">
-            <BrandImage
-              photo={brandPhotos.womanAlley}
-              sizes="(min-width: 1024px) 30vw, 50vw"
-              className="aspect-[3/4]"
-            />
-            <BrandImage
-              photo={brandPhotos.manAlley}
-              sizes="(min-width: 1024px) 30vw, 50vw"
-              className="aspect-[3/4]"
-            />
-          </div>
-        </div>
-
-        <div className="mt-16 grid grid-cols-1 gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
-          {criteria.map((item) => (
-            <div key={item.title} className="flex flex-col border-t border-line pb-8 pt-5">
-              <h3 className="font-display text-lg font-medium text-ink">{item.title}</h3>
-              <p className="mt-3 flex-1 font-body text-sm leading-[1.8] text-ink-light">
-                {item.description}
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-4">
+            <Reveal className="lg:sticky lg:top-28">
+              <h2 className="font-display text-[1.8rem] font-medium leading-[1.35] tracking-[-0.03em] text-ink sm:text-[2.35rem]">
+                전화로 여쭙는 것들
+              </h2>
+              <p className="mt-5 font-body text-[15px] leading-[1.85] text-ink-light">
+                조건표를 채우는 대신 통화로 듣습니다. 처음부터 다 정하지 않아도 되고, 중요한 것부터
+                정리합니다.
               </p>
-              <Link
-                href={item.href}
-                onClick={() =>
-                  trackEvent("cta_consultation_click", {
-                    location: "criteria",
-                    interest: new URLSearchParams(item.href.split("?")[1]).get("interest") ?? "",
-                  })
-                }
-                className="group mt-5 inline-flex items-center gap-1.5 self-start font-body text-[13px] font-medium text-accent"
-              >
-                이 기준으로 상담하기
-                <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </div>
-          ))}
+              <div className="mt-10 grid max-w-sm grid-cols-2 gap-3">
+                <BrandImage photo={brandPhotos.womanAlley} sizes="(min-width: 1024px) 14vw, 45vw" className="aspect-[3/4]" />
+                <BrandImage photo={brandPhotos.manAlley} sizes="(min-width: 1024px) 14vw, 45vw" className="mt-6 aspect-[3/4]" />
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="lg:col-span-8">
+            {criteria.map((item) => (
+              <Reveal key={item.title} className="border-t border-line py-9 first:border-t-0 first:pt-0">
+                <h3 className="font-display text-[1.5rem] font-medium tracking-[-0.02em] text-ink">
+                  {item.title}
+                </h3>
+                <p className="mt-3 font-body text-[16px] leading-[1.85] text-ink">{item.description}</p>
+                <p className="mt-2 font-body text-[14px] leading-[1.8] text-ink-light">
+                  상담에서는 {item.asks} 여쭙니다.
+                </p>
+                <Link
+                  href={item.href}
+                  onClick={() =>
+                    trackEvent("cta_consultation_click", {
+                      location: "criteria",
+                      interest: new URLSearchParams(item.href.split("?")[1]).get("interest") ?? "",
+                    })
+                  }
+                  className="mt-4 inline-block font-body text-[13px] text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
+                >
+                  이 기준으로 상담 신청
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

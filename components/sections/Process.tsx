@@ -7,7 +7,7 @@ export function Process() {
   return (
     <section id="process" className="border-t border-line bg-[#efeae3] py-20 sm:py-28">
       <Container>
-        <SectionHeading index="07" title="다섯 단계로 진행됩니다" />
+        <SectionHeading title="다섯 단계로 진행됩니다" />
 
         <ol className="relative mt-14 grid grid-cols-1 gap-y-10 lg:grid-cols-5 lg:gap-x-8">
           <span aria-hidden className="absolute left-0 right-0 top-[1.15rem] hidden h-px bg-accent/20 lg:block" />

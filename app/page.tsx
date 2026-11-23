@@ -4,7 +4,6 @@ import { Pricing } from "@/components/sections/Pricing";
 import { Comparison } from "@/components/sections/Comparison";
 import { Fit } from "@/components/sections/Fit";
 import { Criteria } from "@/components/sections/Criteria";
-import { Questions } from "@/components/sections/Questions";
 import { IntroExample } from "@/components/sections/IntroExample";
 import { Process } from "@/components/sections/Process";
 import { CafeBand } from "@/components/sections/CafeBand";
@@ -78,7 +77,6 @@ export default function Home() {
       <Fit />
       <IntroExample />
       <Criteria />
-      <Questions />
       {/* TODO(owner): 매니저 소개 섹션 "상담은 매니저가 직접 합니다" — [이름 또는 직함],
           [경력 한두 줄], [상담 원칙 한 문장], [매니저 사진 파일(선택)]을 알려 주시면 이 자리에 넣습니다. */}
       <Process />

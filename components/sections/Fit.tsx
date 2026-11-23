@@ -1,32 +1,25 @@
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
 import { fitList, fitNote } from "@/data/fit";
 
+// Read like a short letter rather than a checklist.
 export function Fit() {
   return (
     <section id="fit" className="border-t border-line py-20 sm:py-28">
       <Container>
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-20">
-          <SectionHeading
-            index="03"
-            className="lg:col-span-5"
-            title="이런 분께 잘 맞습니다"
-            description="두세 가지가 해당된다면 편하게 상담해 보세요."
-          />
-          <div className="lg:col-span-7">
-            <ul className="grid grid-cols-1 gap-x-10 sm:grid-cols-2">
-              {fitList.map((item) => (
-                <li
-                  key={item}
-                  className="border-t border-line py-4 font-body text-[15px] leading-[1.7] text-ink"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-5 font-body text-[13px] text-ink-light">{fitNote}</p>
+        <Reveal className="mx-auto max-w-3xl">
+          <h2 className="font-display text-[1.8rem] font-medium leading-[1.35] tracking-[-0.03em] text-ink sm:text-[2.35rem]">
+            이런 분께 잘 맞습니다
+          </h2>
+          <div className="mt-10 space-y-3 font-display text-[1.15rem] leading-[1.8] text-ink sm:text-[1.35rem]">
+            {fitList.map((item) => (
+              <p key={item}>{item}</p>
+            ))}
           </div>
-        </div>
+          <p className="mt-10 font-body text-[14px] leading-[1.8] text-ink-light">
+            두세 가지가 해당된다면 편하게 상담해 보세요. {fitNote}
+          </p>
+        </Reveal>
       </Container>
     </section>
   );
