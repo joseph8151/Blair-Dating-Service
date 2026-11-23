@@ -61,3 +61,9 @@ h2,
 h3 {
   text-wrap: balance;
 }
+
+/* Visible keyboard focus in the brand color. */
+:focus-visible {
+  outline: 2px solid #3f3330;
+  outline-offset: 3px;
+}
